@@ -7,7 +7,7 @@
 <div class="form-wrapper">
   <div class="form-inner-wrapper">
     <div id="cryptosubmit">
-      <form name='foo' id="foo" action="javascript:void(0)">
+      <form name='customer' id="customer" action="javascript:void(0)">
         <div class="field-list clear">
           <h3>NYS Syringe Exchange Program ID</h3>
           <div class="form-item field text required">
@@ -342,7 +342,7 @@
 
           <div class="form-item field text">
             <label class="title">
-              If you have been hospitalized within the past six months, how many times? 
+              If you have been hospitalized within the past six months, how many times?
             </label>
             <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
           </div>
@@ -511,35 +511,40 @@
     </div>
   </div>
 </div>
+<!-- TODO self host jsencrypt? -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js'></script>
 <script>
   var crypt = new JSEncrypt()
-  crypt.setPublicKey('-----BEGIN PUBLIC KEY-----'
-                     +'MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAvGIrYJvw1wXHi29KOay4'
-                     +'r8pz1+bQQz3T8EhlprtI/7TcclzrVpKfAlFkzSg+sR1IIP/4g/rmcbRmT7S1QS3A'
-                     +'3vtol1sx7NcSuNd4iE2SbnLiD3ZSlQwk3CwThwS4clVC2uyHyUzR70G8q+GUH+rG'
-                     +'hRUbdQd/CkGFSm3sm1GB8prY/y1VanTw+B3b+sThDA9QuiQAY7RpJkeUgxqTlinH'
-                     +'sJVIVZO0RRf/vsb+YnU4yfCxLsnuIlAf+n36IQ9UzkyzGu2EqfwArRr4YfkZAUYX'
-                     +'kAV8A3d9QMqoEpOBe/K2NirXCfpBBYAcWEm3BHzf2cSi6whIMCgzwPlA89zaXuYK'
-                     +'1a0CAwEAAQ=='
-                     +'-----END PUBLIC KEY-----'
-                    )
-  var frm = document.forms['foo'];
+  var pubKey = '-----BEGIN PUBLIC KEY-----'
+             +'MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAvGIrYJvw1wXHi29KOay4'
+             +'r8pz1+bQQz3T8EhlprtI/7TcclzrVpKfAlFkzSg+sR1IIP/4g/rmcbRmT7S1QS3A'
+             +'3vtol1sx7NcSuNd4iE2SbnLiD3ZSlQwk3CwThwS4clVC2uyHyUzR70G8q+GUH+rG'
+             +'hRUbdQd/CkGFSm3sm1GB8prY/y1VanTw+B3b+sThDA9QuiQAY7RpJkeUgxqTlinH'
+             +'sJVIVZO0RRf/vsb+YnU4yfCxLsnuIlAf+n36IQ9UzkyzGu2EqfwArRr4YfkZAUYX'
+             +'kAV8A3d9QMqoEpOBe/K2NirXCfpBBYAcWEm3BHzf2cSi6whIMCgzwPlA89zaXuYK'
+             +'1a0CAwEAAQ=='
+             +'-----END PUBLIC KEY-----'
+  crypt.setPublicKey(pubKey);
+  var frm = document.forms['customer'];
   var x = new XMLHttpRequest;
 
   frm.onsubmit = function() {
-    var res = [];
+    var res = {};
     for (var i=0,l=frm.elements.length; l>i; i++) {
       if (frm.elements[i].name) {
-        res.push(String(frm.elements[i].value).replace(/\"/g, "'"))
+        res[frm.elements[i].name] = frm.elements[i].value;
       }
-      //console.log(frm.elements[i].name, frm.elements[i].value)
     }
-    var resStr = '["' + res.join('","') + '"]';
-    var encrypted = crypt.encrypt(resStr);
+    var crypto = window.crypto || window.msCrypto;
+    var symmKeyBuffer = new Uint32Array(256);
+    window.crypto.getRandomValues(symmKeyBuffer);
+    var symmKeySeed = symmKeyBuffer.join('').slice(0, 245);
+    var encryptedResponse = CryptoJS.AES.encrypt(JSON.stringify(res), symmKeySeed);
+    var encryptedKey = crypt.encrypt(symmKeySeed);
     var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec?fielddata=';
     x.open('GET', url+encodeURIComponent(encrypted), true);
-    
+
     x.onreadystatechange = function(b){if (x.readyState >= 2) {console.log('STATUS', x.status, x.getAllResponseHeaders())}}
     x.onerror = function(b,c){console.log('err', b, c)}
     x.setRequestHeader('Content-Type', 'text/plain')
