@@ -532,7 +532,7 @@
               name: "AES-GCM",
               length: 256
           },
-          false,
+          true,
           ["encrypt", "decrypt"]
       );
       var genCipher = genKey.then(function(key) {
@@ -545,17 +545,28 @@
               key,
               buffer
           );
+      }).then(function (cipherTextBuffer) {
+         var typedBuffer = new Uint8Array(cipherTextBuffer);
+         var binary = '';
+         for (var i = 0; i < typedBuffer.byteLength; i++) {
+             binary += String.fromCharCode(typedBuffer[i]);
+         }
+         return btoa(binary);
       });
-      var encryptedKey = genKey.then(jsEncrypt.encrypt)
-      return Promise.all([encryptedKey, genCipher]);
+      var genEncryptedKey = genKey.then(function (key) {
+          return crypto.subtle.exportKey("raw", key);
+      }).then(function (serializedKey) {
+          return btoa(jsEncrypt.encrypt(serializedKey));
+      });
+      return Promise.all([genEncryptedKey, genCipher]);
   }
 
   function sendFormResponse([encryptedKey, cipherText]) {
       var x = new XMLHttpRequest;
       var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec';
       var queryString = [
-          encodeURIComponent('?key=' + encryptedKey),
-          encodeURIComponent('?fielddata=' + cipherText)
+          '?key=' + encodeURIComponent(encryptedKey),
+          '?fieldata='+ encodeURIComponent(cipherText)
       ].join('&');
       x.open('GET', url + queryString, true);
       x.onreadystatechange = function(b) {
@@ -575,6 +586,7 @@
 
   var frm = document.forms['customer'];
   frm.onsubmit = function() {
+      // TODO FormData API
       var res = {};
       for (var i = 0, l = frm.elements.length; l > i; i++) {
           if (frm.elements[i].name) {
