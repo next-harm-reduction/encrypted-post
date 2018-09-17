@@ -570,8 +570,10 @@
       ].join('&');
       x.open('GET', url + queryString, true);
       x.onreadystatechange = function(b) {
-          if (x.readyState >= 2) {
-              console.log('STATUS', x.status, x.getAllResponseHeaders())
+          if (x.readyState === 4) {
+              if (window.confirm('Your request has been received. Do you want to clear local data?')) {
+                  frm.reset();
+              }
           }
       }
       x.onerror = function(b, c) {
@@ -580,13 +582,12 @@
       x.setRequestHeader('Content-Type', 'text/plain')
       x.send();
       if (typeof x.withCredentials == 'undefined') {
-          frm.parentNode.innerHTML = 'This browser does not support secure submission.  Please upgrade or use Firefox or Chrome.'
+          window.alert('This browser does not support secure submission.  Please upgrade or use Firefox or Chrome.');
       }
   }
 
   var frm = document.forms['customer'];
   frm.onsubmit = function() {
-      // TODO FormData API
       var res = {};
       for (var i = 0, l = frm.elements.length; l > i; i++) {
           if (frm.elements[i].name) {
@@ -594,7 +595,6 @@
           }
       }
       encryptFormResponse(res).then(sendFormResponse);
-
   }</script>
 
 
