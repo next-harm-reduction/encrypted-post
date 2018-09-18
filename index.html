@@ -567,17 +567,20 @@
       var url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
       //   var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec';
       $.ajax(url, {
-          jsonpCallback: 'console.log',
-          dataType: 'jsonp',
-          data: {
-              key: encryptedKey,
-              fielddata: cipherText
-          }
-      }).then(function (resp) {
-          if (window.confirm('Your request has been received. Do you want to clear local data?')) {
-              frm.reset();
-          }
-      });
+              dataType: 'jsonp',
+              data: {
+                  key: encryptedKey,
+                  fielddata: cipherText
+              },
+          })
+          .done(function(resp) {
+              if (window.confirm('Your request has been received. Do you want to clear local data?')) {
+                  frm.reset();
+              }
+          })
+          .fail(function(err) {
+              console.error(arguments);
+          });
   }
 
   var frm = document.forms['customer'];
