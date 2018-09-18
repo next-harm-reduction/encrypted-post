@@ -3,6 +3,8 @@
 // original from: http://mashe.hawksey.info/2014/07/google-sheets-as-a-database-insert-with-apps-script-using-postget-methods-with-ajax-example/
 // original gist: https://gist.github.com/willpatera/ee41ae374d3c9839c2d6
 
+// JSONP for CORS workaround
+// https://ctrlq.org/code/20197-jquery-ajax-call-google-script
 function doGet(e){
   // TODO:
   // 1. Test the origin/referrer domain
@@ -15,8 +17,8 @@ function doGet(e){
   }
   appendToSpreadsheet(e.parameter.key, e.parameter.fielddata);
   return ContentService
-  .createTextOutput(JSON.stringify({"result":"success"}))
-  .setMimeType(ContentService.MimeType.JSON);
+  .createTextOutput(e.parameter.callback + "('success')")
+  .setMimeType(ContentService.MimeType.JAVASCRIPT);
   //return handleResponse(e);
 }
 
