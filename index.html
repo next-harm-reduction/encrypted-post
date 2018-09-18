@@ -545,17 +545,17 @@
               key,
               buffer
           );
-      }).then(function (cipherTextBuffer) {
-         var typedBuffer = new Uint8Array(cipherTextBuffer);
-         var binary = '';
-         for (var i = 0; i < typedBuffer.byteLength; i++) {
-             binary += String.fromCharCode(typedBuffer[i]);
-         }
-         return btoa(binary);
+      }).then(function(cipherTextBuffer) {
+          var typedBuffer = new Uint8Array(cipherTextBuffer);
+          var binary = '';
+          for (var i = 0; i < typedBuffer.byteLength; i++) {
+              binary += String.fromCharCode(typedBuffer[i]);
+          }
+          return btoa(binary);
       });
-      var genEncryptedKey = genKey.then(function (key) {
+      var genEncryptedKey = genKey.then(function(key) {
           return crypto.subtle.exportKey("raw", key);
-      }).then(function (serializedKey) {
+      }).then(function(serializedKey) {
           return btoa(jsEncrypt.encrypt(serializedKey));
       });
       return Promise.all([genEncryptedKey, genCipher]);
@@ -563,10 +563,12 @@
 
   function sendFormResponse([encryptedKey, cipherText]) {
       var x = new XMLHttpRequest;
-      var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec';
+      // DEBUG URL
+      var url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
+      //   var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec';
       var queryString = [
           '?key=' + encodeURIComponent(encryptedKey),
-          '?fieldata='+ encodeURIComponent(cipherText)
+          '?fieldata=' + encodeURIComponent(cipherText)
       ].join('&');
       x.open('GET', url + queryString, true);
       x.onreadystatechange = function(b) {
@@ -579,7 +581,7 @@
       x.onerror = function(b, c) {
           console.error('err', b, c)
       }
-      x.setRequestHeader('Content-Type', 'text/plain')
+      x.setRequestHeader('Content-Type', 'text/plain');
       x.send();
       if (typeof x.withCredentials == 'undefined') {
           window.alert('This browser does not support secure submission.  Please upgrade or use Firefox or Chrome.');
@@ -588,14 +590,13 @@
 
   var frm = document.forms['customer'];
   frm.onsubmit = function() {
-      var res = {};
-      for (var i = 0, l = frm.elements.length; l > i; i++) {
-          if (frm.elements[i].name) {
-              res[frm.elements[i].name] = frm.elements[i].value;
+          var res = {};
+          for (var i = 0, l = frm.elements.length; l > i; i++) {
+              if (frm.elements[i].name) {
+                  res[frm.elements[i].name] = frm.elements[i].value;
+              }
           }
-      }
-      encryptFormResponse(res).then(sendFormResponse);
-  }</script>
+          encryptFormResponse(res).then(sendFormResponse);  }</script>
 
 
 </body>
