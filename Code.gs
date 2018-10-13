@@ -12,10 +12,10 @@ function doGet(e){
   // We don't want to have a parameter that directs to different spreadsheets, because
   // which form someone submits might be too much information -- better to handle that
   // in decryption
-  if (!e.parameter.fielddata || !e.parameter.key) {
+  if (!e.parameter.fielddata || !e.parameter.key || !e.parameter.initVector) {
       throw "Missing required field, either 'key' or 'fielddata'";
   }
-  appendToSpreadsheet(e.parameter.key, e.parameter.fielddata);
+  appendToSpreadsheet(e.parameter.key, e.parameter.fielddata, e.parameter.initVector);
   return ContentService
   .createTextOutput(e.parameter.callback + "('success')")
   .setMimeType(ContentService.MimeType.JAVASCRIPT);
@@ -25,7 +25,7 @@ function doGet(e){
 //  Enter sheet name where data is to be written below
 var SHEET_NAME = "Responses";
 
-function appendToSpreadsheet(key, fieldata) {
+function appendToSpreadsheet(key, fieldata, initVector) {
   //This is the Spreadsheet token in the url between /d/...../edit
 
   // DEBUG
@@ -33,5 +33,5 @@ function appendToSpreadsheet(key, fieldata) {
   // var doc = SpreadsheetApp.openById('1VmcE6WHkF_xWkhCiJGIBnwKF021LwnF7rkpfJlvtOOE');
   var sheet = doc.getSheetByName(SHEET_NAME);
 
-  sheet.appendRow([key, fieldata]);
+  sheet.appendRow([key, fieldata, initVector]);
 }
