@@ -53,33 +53,39 @@ function decryptFormResponses(rows) {
                 ).then(function (payload) {
                     var decoder = new TextDecoder;
                     return JSON.parse(decoder.decode(payload));
+                }).catch(function (err) {
+                    console.log(err);
                 });
             });
     }
 
-    return Promise.all(rows.map(decryptRow));
-    //    if (decrypted) {
-    //      try {
-    //        var cols = JSON.parse(decrypted);
-    //      } catch(err) {
-    //        continue;
-    //      }
-    //      var tr = document.createElement('tr');
-    //      cols.map(function(c) {
-    //         var td = document.createElement('td');
-    //         //SECURITY: innerHTML would allow someone to submit malicious html
-    //         td.innerText = c;
-    //         tr.appendChild(td);
-    //      })
-    //      table.appendChild(tr);
-    //    }
+    function formatValue(key, value) {
+        var textVal;
+        if (Array.isArray(value)) {
+            textVal = value.join(', ');
+        } else {
+            textVal = value;
+        }
+        return key + ": " + textVal;
+    }
+
+    function displayResponses(rows) {
+        var table = document.getElementById('results')
+        rows.map(function (row) {
+            var tr = document.createElement('tr');
+            Object.keys(row).map(function (k) {
+                var td = document.createElement('td');
+                td.innerText = formatValue(k, row[k]);
+                tr.appendChild(td);
+            });
+            table.appendChild(tr);
+       });
+    }
+    return Promise.all(rows.map(decryptRow)).then(displayResponses);
 }
 
 $(document).ready(function () {
-
     var upload = document.getElementById('encrypted')
-    var table = document.getElementById('cryptoresults')
-
     upload.addEventListener('change', function(evt) {
         var reader = new FileReader()
         reader.onload = function(evt) {

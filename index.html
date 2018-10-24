@@ -79,43 +79,45 @@
 
           <div class="form-item field checkbox required">
             <label class="title">My race/ethnicity could be characterized as</label>
-            <div class="option">
-              <label>
-               <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
-               African American/ Black
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
-                Latino/ Latina/ Latinx
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
-                Caucasian/ White
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
-                Native American
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
-                Asian or Pacific Islander
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox"/>
-                Other
-                <input class="field-element text" name="raceethnicity_other" />
-              </label>
-            </div>
+            <fieldset id="race">
+                <div class="option">
+                  <label>
+                   <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
+                   African American/ Black
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
+                    Latino/ Latina/ Latinx
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
+                    Caucasian/ White
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
+                    Native American
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
+                    Asian or Pacific Islander
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="raceethnicity_other" />
+                  </label>
+                </div>
+            </fieldset>
           </div>
           <h3>The following questions are also required for program enrollment</h3>
           <div class="form-item field radio required">
@@ -229,86 +231,88 @@
           <div class="form-item field checkbox required">
             <!-- Probably worth doing not just for enrollment, but also an order -->
             <label class="title">What drugs have you used in the past 30 days?</label>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_heroin" value="Heroin" />
-                Heroin
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_cocaine" value="Cocaine" />
-                Cocaine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
-                Alcohol
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
-                Marijuana
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
-                Methamphetamine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_crack" value="Crack-cocaine" />
-                Crack-cocaine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
-                Methadone
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
-                Buprenorphine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
-                Other opiates such as Oxycontin, Vicodin, Percocet
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_benzos" value="Benzos such as Valium, Ativan, Xanax" />
-                Benzos such as Valium, Ativan, Xanax
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_k2" value="Synthetic marijuana/ K2" />
-                Synthetic marijuana/ K2
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
-                Any other drugs such as PCP, hallucinogens, etc
-                <!-- how is this different than Other? -->
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox"/>
-                Other
-                <input class="field-element text" name="drugs_last_30_other" />
-              </label>
-            </div>
+            <fieldset id="drug_use">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_heroin" value="Heroin" />
+                    Heroin
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_cocaine" value="Cocaine" />
+                    Cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
+                    Alcohol
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
+                    Marijuana
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
+                    Methamphetamine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_crack" value="Crack-cocaine" />
+                    Crack-cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
+                    Methadone
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
+                    Buprenorphine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
+                    Other opiates such as Oxycontin, Vicodin, Percocet
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_benzos" value="Benzos such as Valium, Ativan, Xanax" />
+                    Benzos such as Valium, Ativan, Xanax
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_k2" value="Synthetic marijuana/ K2" />
+                    Synthetic marijuana/ K2
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
+                    Any other drugs such as PCP, hallucinogens, etc
+                    <!-- how is this different than Other? -->
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="drugs_last_30_other" />
+                  </label>
+                </div>
+            </fieldset>
           </div>
           <h3>Questions below are not required for program enrollment however we
             need several of them to help inform our resources and support system. </h3>
@@ -385,43 +389,45 @@
 
           <div class="form-item field checkbox required">
             <label class="title">I have been diagnosed with </label>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
-                HIV/AIDS
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
-                Hepatitis C
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
-                Diabetes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
-                Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
-                Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+            <fieldset id="medical_diagnoses">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
+                    HIV/AIDS
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
+                    Hepatitis C
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
+                    Diabetes
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
+                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
+                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
 
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
-                Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
-              </label>
-            </div>
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
+                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+                  </label>
+                </div>
+            </fieldset>
           </div>
 
           <div class="form-item field radio">

@@ -76,13 +76,34 @@ $(document).ready(function () {
           frm.reset();
       }
     }
+    function isSet(ele) {
+        if (!ele.name) {
+            return false;
+        }
+        if (ele.type === 'radio' || ele.type === 'checkbox') {
+            return ele.checked;
+        }
+        return ele.value !== '';
+    }
+    function setValue(ele, res) {
+        if (ele.type === 'checkbox') {
+            var category = $(ele).closest('fieldset').attr('id');
+            if (res[category]) {
+                res[category].push(ele.value)
+            } else {
+                res[category] = [ele.value]
+            }
+        } else {
+            res[ele.name] = ele.value;
+        }
+    }
     frm.onsubmit = function() {
-          var res = {};
-          for (var i = 0, l = frm.elements.length; l > i; i++) {
-              if (frm.elements[i].name) {
-                  res[frm.elements[i].name] = frm.elements[i].value;
-              }
+        var res = {};
+        Array.from(frm.elements).forEach(function (ele) {
+          if (ele && isSet(ele)) {
+              setValue(ele, res);
           }
-          encryptFormResponse(res).then(sendFormResponse).then(clearForm);
+        });
+        encryptFormResponse(res).then(sendFormResponse).then(clearForm);
     }
 });
