@@ -71,15 +71,22 @@ function decryptFormResponses(rows) {
 
     function displayResponses(rows) {
         var table = document.getElementById('results')
-        rows.map(function (row) {
-            var tr = document.createElement('tr');
-            Object.keys(row).map(function (k) {
-                var td = document.createElement('td');
-                td.innerText = formatValue(k, row[k]);
-                tr.appendChild(td);
+        var keyMap = rows.reduce(function (keys, row) {
+            Object.keys(row).forEach(function(key) {
+                if (!keys[key]) {
+                    keys[key] = true;
+                }
             });
-            table.appendChild(tr);
-       });
+            return keys;
+        }, {});
+        var keys = Object.keys(keyMap).map(function (key) {
+            return { data: key , title: key};
+        });
+        $('#results').DataTable({
+            data: rows,
+            columns: keys,
+        });
+        return rows;
     }
     return Promise.all(rows.map(decryptRow)).then(displayResponses);
 }
