@@ -29,23 +29,27 @@ function decryptFormResponses(rows) {
     }));
   }
 
-  function displayResponses(rows) {
-    const keyMap = rows.reduce((keys, row) => {
-      Object.keys(row).forEach((key) => {
-        if (!keys[key]) {
-          keys[key] = true;
-        }
-      });
-      return keys;
-    }, {});
-    const keys = Object.keys(keyMap).map(key => ({ data: key, title: key }));
-    $('#results').DataTable({
-      data: rows,
-      columns: keys,
+
+  return Promise.all(rows.map(decryptRow));
+}
+
+function displayResponses(rows) {
+  const keyMap = rows.reduce((keys, row) => {
+    Object.keys(row).forEach((key) => {
+      if (!keys[key]) {
+        /* eslint-disable no-param-reassign */
+        keys[key] = true;
+        /* eslint-enable no-param-reassign */
+      }
     });
-    return rows;
-  }
-  return Promise.all(rows.map(decryptRow)).then(displayResponses);
+    return keys;
+  }, {});
+  const keys = Object.keys(keyMap).map(key => ({ data: key, title: key }));
+  $('#results').DataTable({
+    data: rows,
+    columns: keys,
+  });
+  return rows;
 }
 
 $(document).ready(() => {
@@ -55,9 +59,7 @@ $(document).ready(() => {
     reader.onload = () => {
       const rows = reader.result.split('\n').map(row => row.split(','));
       rows.shift();
-      decryptFormResponses(rows).then((payload) => {
-        console.log(payload);
-      });
+      decryptFormResponses(rows).then(displayResponses);
     };
     reader.readAsBinaryString(e.target.files[0]);
   });
