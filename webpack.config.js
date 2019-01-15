@@ -3,9 +3,12 @@ const path = require('path');
 // const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    encrypt: './src/encrypt.js',
+    decrypt: './src/decrypt.js',
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [

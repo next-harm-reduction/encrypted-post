@@ -1,3 +1,4 @@
+/* eslint-disable */
 // From a google spreadsheet open Tools->ScriptEditor and paste this in
 
 // original from: http://mashe.hawksey.info/2014/07/google-sheets-as-a-database-insert-with-apps-script-using-postget-methods-with-ajax-example/

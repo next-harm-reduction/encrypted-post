@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import JSEncrypt from 'jsencrypt';
 
+require('./textEncoder');
+
 function decryptFormResponses(rows) {
   const decrypt = new JSEncrypt();
   decrypt.setPrivateKey();

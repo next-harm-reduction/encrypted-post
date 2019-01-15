@@ -1,8 +1,6 @@
 import $ from 'jquery';
 import JSEncrypt from 'jsencrypt';
 
-require('./textEncoder');
-
 function encryptFormResponse(res) {
   const crypto = window.crypto || window.msCrypto;
   const initVector = window.crypto.getRandomValues(new Uint32Array(8));
