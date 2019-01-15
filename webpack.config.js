@@ -6,7 +6,7 @@ module.exports = [
     entry: './src/encrypt/encrypt.js',
     name: 'encrypt',
     output: {
-      filename: '[name].js',
+      filename: 'main.js',
       path: path.resolve(__dirname, 'dist/encrypt'),
     },
     plugins: [
@@ -21,7 +21,7 @@ module.exports = [
     entry: './src/decrypt/decrypt.js',
     name: 'decrypt',
     output: {
-      filename: '[name].js',
+      filename: 'main.js',
       path: path.resolve(__dirname, 'dist/decrypt'),
     },
     plugins: [
