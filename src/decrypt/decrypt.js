@@ -1,5 +1,8 @@
 import $ from 'jquery';
+
 import JSEncrypt from 'jsencrypt';
+
+require('datatables.net');
 
 function decryptFormResponses(rows) {
   const decrypt = new JSEncrypt();
