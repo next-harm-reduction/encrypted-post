@@ -15,6 +15,14 @@ module.exports = [
         template: 'src/encrypt/encrypt.html',
       }),
     ],
+    module: {
+      rules: [
+        {
+          test: /key\.pub\.rsa/,
+          use: 'raw-loader',
+        },
+      ],
+    },
     target: 'web',
   },
   {

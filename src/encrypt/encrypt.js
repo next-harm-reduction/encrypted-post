@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import JSEncrypt from 'jsencrypt';
+import pubKey from './key.pub.rsa';
 
 require('./textEncoder');
 
@@ -7,15 +8,6 @@ function encryptFormResponse(res) {
   const crypto = window.crypto || window.msCrypto;
   const initVector = window.crypto.getRandomValues(new Uint32Array(8));
   const jsEncrypt = new JSEncrypt();
-  const pubKey = '-----BEGIN PUBLIC KEY-----'
-      + 'MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAvGIrYJvw1wXHi29KOay4'
-      + 'r8pz1+bQQz3T8EhlprtI/7TcclzrVpKfAlFkzSg+sR1IIP/4g/rmcbRmT7S1QS3A'
-      + '3vtol1sx7NcSuNd4iE2SbnLiD3ZSlQwk3CwThwS4clVC2uyHyUzR70G8q+GUH+rG'
-      + 'hRUbdQd/CkGFSm3sm1GB8prY/y1VanTw+B3b+sThDA9QuiQAY7RpJkeUgxqTlinH'
-      + 'sJVIVZO0RRf/vsb+YnU4yfCxLsnuIlAf+n36IQ9UzkyzGu2EqfwArRr4YfkZAUYX'
-      + 'kAV8A3d9QMqoEpOBe/K2NirXCfpBBYAcWEm3BHzf2cSi6whIMCgzwPlA89zaXuYK'
-      + '1a0CAwEAAQ=='
-      + '-----END PUBLIC KEY-----';
   jsEncrypt.setPublicKey(pubKey);
   // https://www.w3.org/2012/webcrypto/draft-irtf-cfrg-webcrypto-algorithms-00#sctn-intro
   // https://github.com/diafygi/webcrypto-examples
