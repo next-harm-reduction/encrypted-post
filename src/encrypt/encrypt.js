@@ -2,6 +2,7 @@ import $ from 'jquery';
 import JSEncrypt from 'jsencrypt';
 import pubKey from './key.pub.rsa';
 
+
 require('./textEncoder');
 
 function encryptFormResponse(res) {
@@ -55,6 +56,7 @@ function sendFormResponse([encryptedKey, cipherText, initVector]) {
       key: encryptedKey,
       fielddata: cipherText,
       initVector: btoa(initVector.toString()),
+      gitHash: GITHASH,
     },
   })
     .fail((err) => {

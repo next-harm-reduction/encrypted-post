@@ -5,5 +5,8 @@ module.exports = {
     },
     "rules": {
         "no-console": 0,
+    },
+    "globals": {
+        "GITHASH": true
     }
 };

@@ -1,5 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const GitRevisionPlugin = require('git-revision-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+
+const gitRevisionPlugin = new GitRevisionPlugin();
+
 
 module.exports = [
   {
@@ -10,6 +15,9 @@ module.exports = [
       path: path.resolve(__dirname, 'dist/encrypt'),
     },
     plugins: [
+      new webpack.DefinePlugin({
+        GITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
+      }),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'src/encrypt/encrypt.html',
