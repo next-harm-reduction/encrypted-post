@@ -13,15 +13,23 @@ function doGet(e){
   // We don't want to have a parameter that directs to different spreadsheets, because
   // which form someone submits might be too much information -- better to handle that
   // in decryption
-  if (
-    !e.parameter.fielddata ||
-    !e.parameter.key ||
-    !e.parameter.initVector ||
-    !e.parameter.gitHash
-    ) {
-      throw "Missing required field";
-  }
-  appendToSpreadsheet(e.parameter.key, e.parameter.fielddata, e.parameter.initVector);
+  var params = [
+      "key",
+      "fielddata",
+      "initVector",
+      "gitHash"
+  ];
+  var data = e.parameter;
+  params.forEach(function(p) {
+     if ((data[p]) === null || data[p] === '') {
+         throw "Missing required field: {0}".format(p);
+     }
+  });
+  appendToSpreadsheet.apply(
+      params.map(function (p) {
+         return data[p];
+      })
+  )
   return ContentService
   .createTextOutput(e.parameter.callback + "('success')")
   .setMimeType(ContentService.MimeType.JAVASCRIPT);

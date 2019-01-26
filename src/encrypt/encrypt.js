@@ -50,6 +50,7 @@ function sendFormResponse([encryptedKey, cipherText, initVector]) {
   // DEBUG URL
   const url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
   //   var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec';
+  console.log(GITHASH, 'IN FORM RESPONSE');
   $.ajax(url, {
     dataType: 'jsonp',
     data: {
