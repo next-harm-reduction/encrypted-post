@@ -3,7 +3,7 @@
 1. Create a google spreadsheet where the encrypted submissions will go.
 2. Go to Tools->ScriptEditor and paste in `Code.gs` content
 3. Edit the bottom where the Spreadsheet url token is and put the token of the spreadsheet
-4. Publish -> Deploy as webapp, with *Execute As* as the spreads    heet owner and *Who has access*:Anyone
+4. Publish -> Deploy as webapp, with *Execute As* as the spreadsheet owner and *Who has access*:Anyone
 5. Copy the Current web app url for a later step (Step 7)
 6. Generate a Private/Public key pair as described in the jsencrypt project:
    * From here: [https://github.com/travist/jsencrypt#how-to-use-this-library](https://github.com/travist/jsencrypt#how-to-use-this-library)

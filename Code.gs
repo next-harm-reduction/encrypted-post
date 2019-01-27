@@ -25,13 +25,20 @@ function doGet(e){
          throw "Missing required field: {0}".format(p);
      }
   });
+  var enrollmentCode =
+    [
+        Math.random().toString(36).substr(2, 3),
+        Math.random().toString(36).substr(2, 3),
+    ].join('-').toUpperCase();
+
   appendToSpreadsheet.apply(
+      null,
       params.map(function (p) {
          return data[p];
-      })
-  )
+     }).concat([enrollmentCode])
+  );
   return ContentService
-  .createTextOutput(e.parameter.callback + "('success')")
+  .createTextOutput(e.parameter.callback + "({0})".format(enrollmentCode))
   .setMimeType(ContentService.MimeType.JAVASCRIPT);
   //return handleResponse(e);
 }
@@ -39,7 +46,7 @@ function doGet(e){
 //  Enter sheet name where data is to be written below
 var SHEET_NAME = "Responses";
 
-function appendToSpreadsheet(key, fieldata, initVector, gitHash) {
+function appendToSpreadsheet(key, fieldata, initVector, gitHash, enrollmentCode) {
   //This is the Spreadsheet token in the url between /d/...../edit
 
   // DEBUG
@@ -47,5 +54,6 @@ function appendToSpreadsheet(key, fieldata, initVector, gitHash) {
   // var doc = SpreadsheetApp.openById('1VmcE6WHkF_xWkhCiJGIBnwKF021LwnF7rkpfJlvtOOE');
   var sheet = doc.getSheetByName(SHEET_NAME);
 
-  sheet.appendRow([key, fieldata, initVector, gitHash]);
+
+  sheet.appendRow([key, fieldata, initVector, gitHash, enrollmentCode]);
 }
