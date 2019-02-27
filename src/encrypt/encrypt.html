@@ -7,7 +7,7 @@
 <div class="form-wrapper">
   <div class="form-inner-wrapper">
     <div id="cryptosubmit">
-      <form name='foo' id="foo" action="javascript:void(0)">
+      <form name='customer' id="customer" action="javascript:void(0)">
         <div class="field-list clear">
           <h3>NYS Syringe Exchange Program ID</h3>
           <div class="form-item field text required">
@@ -79,43 +79,45 @@
 
           <div class="form-item field checkbox required">
             <label class="title">My race/ethnicity could be characterized as</label>
-            <div class="option">
-              <label>
-               <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
-               African American/ Black
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
-                Latino/ Latina/ Latinx
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
-                Caucasian/ White
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
-                Native American
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
-                Asian or Pacific Islander
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox"/>
-                Other
-                <input class="field-element text" name="raceethnicity_other" />
-              </label>
-            </div>
+            <fieldset id="race">
+                <div class="option">
+                  <label>
+                   <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
+                   African American/ Black
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
+                    Latino/ Latina/ Latinx
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
+                    Caucasian/ White
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
+                    Native American
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
+                    Asian or Pacific Islander
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="raceethnicity_other" />
+                  </label>
+                </div>
+            </fieldset>
           </div>
           <h3>The following questions are also required for program enrollment</h3>
           <div class="form-item field radio required">
@@ -229,86 +231,88 @@
           <div class="form-item field checkbox required">
             <!-- Probably worth doing not just for enrollment, but also an order -->
             <label class="title">What drugs have you used in the past 30 days?</label>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_heroin" value="Heroin" />
-                Heroin
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_cocaine" value="Cocaine" />
-                Cocaine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
-                Alcohol
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
-                Marijuana
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
-                Methamphetamine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_crack" value="Crack-cocaine" />
-                Crack-cocaine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
-                Methadone
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
-                Buprenorphine
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
-                Other opiates such as Oxycontin, Vicodin, Percocet
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_benzos" value="Benzos such as Valium, Ativan, Xanax" />
-                Benzos such as Valium, Ativan, Xanax
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_k2" value="Synthetic marijuana/ K2" />
-                Synthetic marijuana/ K2
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
-                Any other drugs such as PCP, hallucinogens, etc
-                <!-- how is this different than Other? -->
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox"/>
-                Other
-                <input class="field-element text" name="drugs_last_30_other" />
-              </label>
-            </div>
+            <fieldset id="drug_use">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_heroin" value="Heroin" />
+                    Heroin
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_cocaine" value="Cocaine" />
+                    Cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
+                    Alcohol
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
+                    Marijuana
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
+                    Methamphetamine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_crack" value="Crack-cocaine" />
+                    Crack-cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
+                    Methadone
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
+                    Buprenorphine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
+                    Other opiates such as Oxycontin, Vicodin, Percocet
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_benzos" value="Benzos such as Valium, Ativan, Xanax" />
+                    Benzos such as Valium, Ativan, Xanax
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_k2" value="Synthetic marijuana/ K2" />
+                    Synthetic marijuana/ K2
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
+                    Any other drugs such as PCP, hallucinogens, etc
+                    <!-- how is this different than Other? -->
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="drugs_last_30_other" />
+                  </label>
+                </div>
+            </fieldset>
           </div>
           <h3>Questions below are not required for program enrollment however we
             need several of them to help inform our resources and support system. </h3>
@@ -342,7 +346,7 @@
 
           <div class="form-item field text">
             <label class="title">
-              If you have been hospitalized within the past six months, how many times? 
+              If you have been hospitalized within the past six months, how many times?
             </label>
             <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
           </div>
@@ -385,43 +389,45 @@
 
           <div class="form-item field checkbox required">
             <label class="title">I have been diagnosed with </label>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
-                HIV/AIDS
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
-                Hepatitis C
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
-                Diabetes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
-                Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
-                Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+            <fieldset id="medical_diagnoses">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
+                    HIV/AIDS
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
+                    Hepatitis C
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
+                    Diabetes
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
+                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
+                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
 
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
-                Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
-              </label>
-            </div>
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
+                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+                  </label>
+                </div>
+            </fieldset>
           </div>
 
           <div class="form-item field radio">
@@ -511,46 +517,5 @@
     </div>
   </div>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js'></script>
-<script>
-  var crypt = new JSEncrypt()
-  crypt.setPublicKey('-----BEGIN PUBLIC KEY-----'
-                     +'MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAvGIrYJvw1wXHi29KOay4'
-                     +'r8pz1+bQQz3T8EhlprtI/7TcclzrVpKfAlFkzSg+sR1IIP/4g/rmcbRmT7S1QS3A'
-                     +'3vtol1sx7NcSuNd4iE2SbnLiD3ZSlQwk3CwThwS4clVC2uyHyUzR70G8q+GUH+rG'
-                     +'hRUbdQd/CkGFSm3sm1GB8prY/y1VanTw+B3b+sThDA9QuiQAY7RpJkeUgxqTlinH'
-                     +'sJVIVZO0RRf/vsb+YnU4yfCxLsnuIlAf+n36IQ9UzkyzGu2EqfwArRr4YfkZAUYX'
-                     +'kAV8A3d9QMqoEpOBe/K2NirXCfpBBYAcWEm3BHzf2cSi6whIMCgzwPlA89zaXuYK'
-                     +'1a0CAwEAAQ=='
-                     +'-----END PUBLIC KEY-----'
-                    )
-  var frm = document.forms['foo'];
-  var x = new XMLHttpRequest;
-
-  frm.onsubmit = function() {
-    var res = [];
-    for (var i=0,l=frm.elements.length; l>i; i++) {
-      if (frm.elements[i].name) {
-        res.push(String(frm.elements[i].value).replace(/\"/g, "'"))
-      }
-      //console.log(frm.elements[i].name, frm.elements[i].value)
-    }
-    var resStr = '["' + res.join('","') + '"]';
-    var encrypted = crypt.encrypt(resStr);
-    var url = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec?fielddata=';
-    x.open('GET', url+encodeURIComponent(encrypted), true);
-    
-    x.onreadystatechange = function(b){if (x.readyState >= 2) {console.log('STATUS', x.status, x.getAllResponseHeaders())}}
-    x.onerror = function(b,c){console.log('err', b, c)}
-    x.setRequestHeader('Content-Type', 'text/plain')
-    x.send();
-  }
-
-if (typeof x.withCredentials == 'undefined') {
-  frm.parentNode.innerHTML = 'This browser does not support secure submission.  Please upgrade or use Firefox or Chrome.'
-}
-</script>
-
-
 </body>
 </html>

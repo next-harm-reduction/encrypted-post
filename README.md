@@ -24,3 +24,10 @@
 3. In a web browser File->Open decrypt.html wherever it lives on the computer
 4. Click upload, and choose the downloaded csv file -- the browser will display the decrypted contents
 
+
+## Development
+1. For a quick startup,
+    ````
+    python -m SimpleHTTPServer
+    ````
+    from this directory.

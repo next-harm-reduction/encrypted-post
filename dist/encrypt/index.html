@@ -1,0 +1,521 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="form-wrapper">
+  <div class="form-inner-wrapper">
+    <div id="cryptosubmit">
+      <form name='customer' id="customer" action="javascript:void(0)">
+        <div class="field-list clear">
+          <h3>NYS Syringe Exchange Program ID</h3>
+          <div class="form-item field text required">
+            <label class="title">The First Letter of your Last Name</label>
+            <input class="field-element text" name="last_name_letter" />
+          </div>
+          <div class="form-item field text required">
+            <label class="title">The First Letter of your First Name</label>
+            <input class="field-element text" name="first_name_letter" />
+          </div>
+          <div class="form-item field text required">
+            <label class="title">The First Initial of Your Mother's First Name</label>
+            <input class="field-element text" name="mother_first_name_letter" />
+          </div>
+          <fieldset class="form-item fields date">
+              <div class="title">Date of Birth</div>
+              <legend>Date of Birth</legend>
+              <div class="field month two-digits">
+                <label class="caption"><input class="field-element" type="text" maxlength="2" data-title="Month" name="dob_month" />
+                  MM</label>
+              </div>
+              <div class="field day two-digits">
+                <label class="caption"><input class="field-element" type="text" maxlength="2" data-title="Day" name="dob_day" />
+                  DD</label>
+              </div>
+              <div class="field year four-digits">
+                <label class="caption"><input class="field-element" type="text" maxlength="4" data-title="Year" name="dob_year" />
+                  YYYY</label>
+              </div>
+          </fieldset>
+          <div class="form-item field radio required">
+            <label class="title required">Gender</label>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="woman" /> Female - Identify as a Woman
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="man" /> Male - Identify as a Man
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="transwoman" /> Transgender - Identify as a Woman
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="transman" /> Transgender - Identify as a Man
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="genderqueer_bornfemale" /> Born female - Identify as Genderqueer
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="genderqueer_bornmale" /> Born male - Identify as Genderqueer
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="gender" value="other" /> Other <input class="field-element text" name="genderother" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field checkbox required">
+            <label class="title">My race/ethnicity could be characterized as</label>
+            <fieldset id="race">
+                <div class="option">
+                  <label>
+                   <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
+                   African American/ Black
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
+                    Latino/ Latina/ Latinx
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
+                    Caucasian/ White
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
+                    Native American
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
+                    Asian or Pacific Islander
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="raceethnicity_other" />
+                  </label>
+                </div>
+            </fieldset>
+          </div>
+          <h3>The following questions are also required for program enrollment</h3>
+          <div class="form-item field radio required">
+            <label class="title required">Do you have insurance?</label>
+            <div class="option">
+              <label>
+                <input type="radio" name="insurance" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="insurance" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="insurance" value="I'm not sure" /> I'm not sure
+              </label>
+            </div>
+          </div>
+          <div class="form-item field radio required">
+            <label class="title required">Do you currently have a Primary Care Provider?
+              That is, a doctor, nurse or physician assistant you see when it is not an emergency.
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="primary_care_provider" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="primary_care_provider" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="primary_care_provider" value="I'm not sure" /> I'm not sure
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="primary_care_provider" value="Other" /> Other:
+                <input type="text" name="primary_care_provider_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">How would you describe your sexual orientation
+              (some answers may include gay, strait, bisexual, queer, lesbian, etc)
+            </label>
+            <input class="field-element" name="sexual_orientation" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field radio required">
+            <label class="title required">What is your housing status?</label>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="I rent or own my own home/apartment- Stable Situation" />
+                I rent or own my own home/apartment- Stable Situation
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="I rent or own my own home/apartment- Unstable Situation" />
+                I rent or own my own home/apartment- Unstable Situation
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="I live with family or friends - Stable Situation" />
+                I live with family or friends - Stable Situation
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="I live with family or friends- Unstable Situation" />
+                I live with family or friends- Unstable Situation
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="Homeless in the Shelter System" />
+                Homeless in the Shelter System
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="Homeless not in the Shelter System" />
+                Homeless not in the Shelter System
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="housing_status" value="Other" /> Other:
+                <input type="text" name="housing_status_other" />
+              </label>
+            </div>
+          </div>
+          <div class="form-item field text">
+            <label class="title">What's your zip code?</label>
+            <input class="field-element" name="zip" placeholder="Your answer" />
+          </div>
+
+
+          <div class="form-item field text">
+            <label class="title">How old were you when you started injecting drugs?</label>
+            <input class="field-element" name="age_started_injecting" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field checkbox required">
+            <!-- Probably worth doing not just for enrollment, but also an order -->
+            <label class="title">What drugs have you used in the past 30 days?</label>
+            <fieldset id="drug_use">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_heroin" value="Heroin" />
+                    Heroin
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_cocaine" value="Cocaine" />
+                    Cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
+                    Alcohol
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
+                    Marijuana
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
+                    Methamphetamine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_crack" value="Crack-cocaine" />
+                    Crack-cocaine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
+                    Methadone
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
+                    Buprenorphine
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
+                    Other opiates such as Oxycontin, Vicodin, Percocet
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_benzos" value="Benzos such as Valium, Ativan, Xanax" />
+                    Benzos such as Valium, Ativan, Xanax
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_k2" value="Synthetic marijuana/ K2" />
+                    Synthetic marijuana/ K2
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
+                    Any other drugs such as PCP, hallucinogens, etc
+                    <!-- how is this different than Other? -->
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox"/>
+                    Other
+                    <input class="field-element text" name="drugs_last_30_other" />
+                  </label>
+                </div>
+            </fieldset>
+          </div>
+          <h3>Questions below are not required for program enrollment however we
+            need several of them to help inform our resources and support system. </h3>
+          <p>Thanks for taking the time to fill these out. </p>
+          <div class="form-item field radio">
+            <label class="title ">
+              If you have been hospitalized within the past six months?
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="hospitalized_6months" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="hospitalized_6months" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="hospitalized_6months" value="I forget" /> I forget
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="hospitalized_6months" value="Other" /> Other:
+                <input type="text" name="hospitalized_6months_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              If you have been hospitalized within the past six months, how many times?
+            </label>
+            <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              Regarding medication-based treatment
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="medication_drug_treatment" value="I am not currently enrolled in a Methadone or Buprenorphine Program" />
+                I am not currently enrolled in a Methadone or Buprenorphine Program
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Methadone Program" />
+                I am currently enrolled in a Methadone Program
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Buprenorphine Program" />
+                I am currently enrolled in a Buprenorphine Program
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Naltrexone Program" />
+                I am currently enrolled in a Naltrexone Program
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="medication_drug_treatment" value="Other" /> Other:
+                <input type="text" name="medication_drug_treatment_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field checkbox required">
+            <label class="title">I have been diagnosed with </label>
+            <fieldset id="medical_diagnoses">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
+                    HIV/AIDS
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
+                    Hepatitis C
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
+                    Diabetes
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
+                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
+                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
+                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+                  </label>
+                </div>
+            </fieldset>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              I am a US veteran or in active duty
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="Other" /> Other:
+                <input type="text" name="military_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              I am a parent, or parenting
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="Other" /> Other:
+                <input type="text" name="parent_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              (If female) I am pregnant
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="pregnant" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="pregnant" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="pregnant" value="I'm not sure" /> I'm not sure
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="pregnant" value="Other" /> Other:
+                <input type="text" name="pregnant_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">City</label>
+            <input class="field-element" name="city" />
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">State</label>
+            <input class="field-element" name="state" />
+          </div>
+        </div>
+        <input class="button sqs-system-button sqs-editable-button"
+               type='submit' value='Submit' />
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="main.js"></script></body>
+</html>
