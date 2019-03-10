@@ -50,8 +50,7 @@ function appendToSpreadsheet(key, fieldata, initVector, gitHash, enrollmentCode)
   //This is the Spreadsheet token in the url between /d/...../edit
 
   // DEBUG
-  var doc = SpreadsheetApp.openById('1FyKBMiKmMvKu8QtHakIu0Ih1Mt0cjSD-xvvTLJdYQn0');
-  // var doc = SpreadsheetApp.openById('1VmcE6WHkF_xWkhCiJGIBnwKF021LwnF7rkpfJlvtOOE');
+  var doc = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = doc.getSheetByName(SHEET_NAME);
 
 

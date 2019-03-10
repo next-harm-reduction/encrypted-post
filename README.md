@@ -31,3 +31,23 @@
     python -m SimpleHTTPServer
     ````
     from this directory.
+
+2. When you have made changes, run `webpack` (possibly as `./node_modules/.bin/webpack`)
+   which deploys changes in ./src to ./dist however the project tracks the ./testdist directory
+   There are some important environment variables that control webpack's build.
+
+## Browser compatibility
+
+Webpacked config still uses some 'old-modern' javascript browser features.
+This project targets compatibility with Internet Explorer 10+
+
+Features used for the encrypt part:
+
+* [btoa](https://caniuse.com/#feat=atob-btoa) (Base64 encoding and decoding)
+* [xmlhttprequest2](https://caniuse.com/#feat=xhr2) fails for IE9, but IE10+ is ok
+* [cors xmlhttprequest](https://caniuse.com/#feat=cors) requires polyfill for IE9, but IE10+ is ok
+* [querySelector](https://caniuse.com/#feat=queryselector) We avoid jQuery as a dependency for universal deployment but thus need querySelector
+
+Features avoided:
+* [Promises](https://caniuse.com/#feat=promises) are not available in pre-Edge Trident Internet Explorers including 10-11
+* [TextEncoder](https://caniuse.com/#feat=textencoder) is unavailable in IE 10-11, so we add a polyfill
