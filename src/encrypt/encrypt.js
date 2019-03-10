@@ -1,62 +1,67 @@
 import JSEncrypt from 'jsencrypt';
-import pubKey from './key.pub.rsa';
+import pubKey from 'PUBLIC_KEY_FILE';
 
 require('./closestPolyfill');
 require('./textEncoderPolyfill');
 
 function encryptFormResponse(res) {
-  const crypto = window.crypto || window.msCrypto;
-  const initVector = window.crypto.getRandomValues(new Uint32Array(8));
-  const jsEncrypt = new JSEncrypt();
+  var crypto = window.crypto || window.msCrypto;
+  var initVector = window.crypto.getRandomValues(new Uint32Array(8));
+  var jsEncrypt = new JSEncrypt();
   jsEncrypt.setPublicKey(pubKey);
   // https://www.w3.org/2012/webcrypto/draft-irtf-cfrg-webcrypto-algorithms-00#sctn-intro
   // https://github.com/diafygi/webcrypto-examples
-  const genKey = crypto.subtle.generateKey(
+  var genKey = crypto.subtle.generateKey(
     {
       name: 'AES-GCM',
       length: 256,
     },
     true,
     ['encrypt']);
-  const genCipher = genKey.then((key) => {
-    const encoder = new TextEncoder();
-    const { buffer } = encoder.encode(JSON.stringify(res));
+  var genCipher = genKey.then(function(key) {
+    var encoder = new TextEncoder();
+    var { buffer } = encoder.encode(JSON.stringify(res));
     return crypto.subtle.encrypt({
       name: 'AES-GCM',
       iv: initVector,
     },
     key,
     buffer);
-  }).then((cipherTextBuffer) => {
-    const typedBuffer = new Uint8Array(cipherTextBuffer);
-    let binary = '';
+  }).then(function(cipherTextBuffer) {
+    var typedBuffer = new Uint8Array(cipherTextBuffer);
+    var binary = '';
     // syntax: using greater-than to avoid inline html parsing issues
-    for (let i = 0; typedBuffer.byteLength > i; i += 1) {
+    for (var i = 0; typedBuffer.byteLength > i; i += 1) {
       binary += String.fromCharCode(typedBuffer[i]);
     }
     return btoa(binary);
   });
-  const genEncryptedKey = genKey.then(key => crypto.subtle.exportKey('raw', key)).then((serializedKey) => {
-    const view = new Uint8Array(serializedKey);
-    const stringifiedView = [];
-    view.forEach((point) => {
-      stringifiedView.push(point.toString());
-    });
-    return btoa(jsEncrypt.encrypt(JSON.stringify(stringifiedView)));
-  });
+  var genEncryptedKey = genKey
+    .then(
+      function(key) { return crypto.subtle.exportKey('raw', key)}
+    ).then(
+      function(serializedKey) {
+        var view = new Uint8Array(serializedKey);
+        var stringifiedView = [];
+        view.forEach(function(point) {
+          stringifiedView.push(point.toString());
+        });
+        return btoa(jsEncrypt.encrypt(JSON.stringify(stringifiedView)));
+      }
+    );
   return Promise.all([genEncryptedKey, genCipher, Promise.resolve(initVector)]);
 }
 
 function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
-  let url = baseUrl || SUBMIT_URL
-  const urlArgs = []
+  var url = baseUrl || SUBMIT_URL
+  var urlArgs = []
   for (var a in valuesDict) {
     urlArgs.push(a + '=' + encodeURIComponent(valuesDict[a]))
   }
-  const queryString = urlArgs.join('&')
+  var queryString = urlArgs.join('&')
 
-  const x = new XMLHttpRequest();
-  const method = 'POST'
+  var x = new XMLHttpRequest();
+  var method = 'POST'
   if (method === 'POST') {
     x.open(method, url, true);
   } else if (method === 'GET') {
@@ -81,8 +86,8 @@ function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
 }
 
 function sendFormResponse([encryptedKey, cipherText, initVector]) {
-  // const url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
-  const url = SUBMIT_URL
+  // var url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
+  var url = SUBMIT_URL
   console.log(SUBMIT_URL, GITHASH, 'IN FORM RESPONSE');
 
   return sendXhr({ key: encryptedKey,
@@ -91,11 +96,11 @@ function sendFormResponse([encryptedKey, cipherText, initVector]) {
                    gitHash: GITHASH,
                  },
                  null,
-                 (err) => { console.log('request failed', err) })
+                 function(err) { console.log('request failed', err) })
 }
 
 function main() {
-  const frm = document.forms.customer;
+  var frm = document.forms.customer;
   function clearForm() {
     if (window.confirm('Your request has been received. Do you want to clear local data?')) {
       frm.reset();
@@ -112,7 +117,7 @@ function main() {
   }
   function setValue(ele, res) {
     if (ele.type === 'checkbox') {
-      const category = (ele.closest('fieldset') || {}).id
+      var category = (ele.closest('fieldset') || {}).id
       if (category && res[category]) {
         res[category].push(ele.value);
       } else {
@@ -122,9 +127,9 @@ function main() {
       res[ele.name] = ele.value;
     }
   }
-  frm.onsubmit = () => {
-    const res = {};
-    Array.from(frm.elements).forEach((ele) => {
+  frm.onsubmit = function() {
+    var res = {};
+    Array.from(frm.elements).forEach(function(ele) {
       if (ele && isSet(ele)) {
         setValue(ele, res);
       }
