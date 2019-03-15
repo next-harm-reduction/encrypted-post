@@ -1,12 +1,14 @@
 import $ from 'jquery';
 
 import JSEncrypt from 'jsencrypt';
+import privKey from 'PRIVATE_KEY_FILE';
 
 require('datatables.net');
 
+const decrypt = new JSEncrypt();
+decrypt.setPrivateKey(privKey);
+
 function decryptFormResponses(rows) {
-  const decrypt = new JSEncrypt();
-  decrypt.setPrivateKey();
   function decryptRow(row) {
     const decryptedStringifiedView = JSON.parse(decrypt.decrypt(atob(row[0])));
     const view = decryptedStringifiedView.map(str => parseInt(str, 10));
@@ -19,7 +21,7 @@ function decryptFormResponses(rows) {
     }
     const iv = atob(row[2]).split(',').map(str => parseInt(str, 10));
     const ivBuffer = new Uint32Array(iv);
-    return fetchKey().then(key => crypto.subtle.decrypt({
+    return fetchKey.then(key => crypto.subtle.decrypt({
       name: 'AES-GCM',
       iv: ivBuffer,
     },
@@ -61,7 +63,7 @@ $(document).ready(() => {
     const reader = new FileReader();
     reader.onload = () => {
       const rows = reader.result.split('\n').map(row => row.split(','));
-      rows.shift();
+      //rows.shift(); only if header row -- let's fix this in decryption
       decryptFormResponses(rows).then(displayResponses);
     };
     reader.readAsBinaryString(e.target.files[0]);
