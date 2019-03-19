@@ -9,7 +9,24 @@
     <div id="cryptosubmit">
       <form name='customer' id="customer" action="javascript:void(0)">
         <div class="field-list clear">
-          <h3>NYS Syringe Exchange Program ID</h3>
+
+          <div class="form-item field text">
+            <label class="title">
+              Please tell us how you learned about NEXT. Be specific.
+            </label>
+            <input class="field-element" name="next_info" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              Do you have any suggestions of other places that would be good to advertise or outreach to people who use drugs that can't access syringe exchange?
+            </label>
+            <input class="field-element" name="next_info" placeholder="Your answer" />
+          </div>
+
+          <h3>To provide you an anonymous NYS Syringe Exchange Program ID card, we are required to gather some general information.</h3>
+          <p>Don't want an ID? That's okay. We do still need this information to create an anonymous code for you.</p>
+
           <div class="form-item field text required">
             <label class="title">The First Letter of your Last Name</label>
             <input class="field-element text" name="last_name_letter" />
@@ -105,45 +122,74 @@
           </div>
 
           <div class="form-item field checkbox required">
-            <label class="title">My race/ethnicity could be characterized as</label>
+            <label class="title">My ethnicity could be described as</label>
+            <fieldset id="ethnicity">
+              <select name="ethnicity">
+                <div class="option">
+                   <option name="ethnicity_nonhispanic" value="Non-Hispanic">
+                   Non-Hispanic</option>
+                </div>
+                <div class="option">
+                    <option name="ethnicity_hispanic_dominican" value="Hispanic - Dominican">
+                    Hispanic - Dominican</option>
+                </div>
+                <div class="option">
+                    <option name="ethnicity_hispanic_cuban" value="Hispanic - Cuban">
+                    Hispanic - Cuban</option>
+                </div>
+                <div class="option">
+                    <option name="ethnicity_hispanic_south_american" value="Hispanic - South American">Hispanic - South American</option>
+                </div>
+                <div class="option">
+                    <option name="ethnicity_hispanic_mexican" value="Hispanic - Mexican/ Chicano/a">
+                    Hispanic - Mexican/ Chicano/a</option>
+                </div>
+                <div class="option">
+                  <label>
+                    <option name="ethnicity_hispanic_spanish" value="Hispanic - Spanish">
+                    Hispanic - Spanish</option>
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <option name="ethnicity_hispanic_other" value="Other">
+                    Other</option>
+                  </label>
+                </div>
+              </select>
+            </fieldset>
+          </div>
+
+          <div class="form-item field checkbox required">
+            <label class="title">My race could be characterized as</label>
             <fieldset id="race">
+              <select name="race">
                 <div class="option">
-                  <label>
-                   <input type="checkbox" name="raceethnicity_black" value="African American/Black" />
-                   African American/ Black
-                  </label>
+                   <option name="race_afam" value="African American/Black">
+                   African American/Black</option>
+                </div>
+                <div class="option">
+                    <option name="race_caucasian" value="Caucasian/ White">
+                    Caucasian/ White</option>
+                </div>
+                <div class="option">
+                    <option name="race_natam" value="Native American or Alaska Native">
+                    Native American or Alaska Native</option>
+                </div>
+                <div class="option">
+                    <option name="race_islander" value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
+                </div>
+                <div class="option">
+                    <option name="race_asian" value="Asian">
+                    Asian</option>
                 </div>
                 <div class="option">
                   <label>
-                    <input type="checkbox" name="raceethnicity_latinx" value="Latino/ Latina/ Latinx" />
-                    Latino/ Latina/ Latinx
+                    <option name="ethnicity_hispanic_other" value="Other">
+                    I don't fit into this box</option>
                   </label>
                 </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="raceethnicity_white" value="Caucasian/ White" />
-                    Caucasian/ White
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="raceethnicity_nativeamerican" value="Native American" />
-                    Native American
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="raceethnicity_api" value="Asian or Pacific Islander" />
-                    Asian or Pacific Islander
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox"/>
-                    Other
-                    <input class="field-element text" name="raceethnicity_other" />
-                  </label>
-                </div>
+              </select>
             </fieldset>
           </div>
 
