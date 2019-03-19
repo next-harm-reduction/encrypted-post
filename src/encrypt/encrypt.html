@@ -191,17 +191,73 @@
                 <input type="radio" name="primary_care_provider" value="I'm not sure" /> I'm not sure
               </label>
             </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="primary_care_provider" value="Other" /> Other:
-                <input type="text" name="primary_care_provider_other" />
-              </label>
-            </div>
           </div>
 
           <div class="form-item field text">
+            <label class="title">
+              If you have been hospitalized within the past six months, how many times?
+            </label>
+            <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              Have you had issues related to abscesses, cellulitis, endocarditis? Please explain.
+            </label>
+            <input class="field-element" name="hospitalized_conditions" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field checkbox required">
+            <label class="title">Have you been diagnosed with any of the following (check all that apply) 
+            </label>
+            <fieldset id="medical_diagnoses">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
+                    HIV/AIDS
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
+                    Hepatitis C
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
+                    Diabetes
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
+                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
+                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
+                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+                  </label>
+                </div>
+                <div class="option">
+                    <label>
+                      <input type="checkbox" name="diagnosed_other" value="other"> Other <input class="field-element text" name="diagnosed_other">
+                    </label>
+                </div>
+            </fieldset>
+          </div>
+          
+          <div class="form-item field text">
             <label class="title">How would you describe your sexual orientation
-              (some answers may include gay, strait, bisexual, queer, lesbian, etc)
+              (some answers may include gay, straight, bisexual, queer, lesbian, etc)
             </label>
             <input class="field-element" name="sexual_orientation" placeholder="Your answer" />
           </div>
@@ -348,42 +404,6 @@
                 </div>
             </fieldset>
           </div>
-          <h3>Questions below are not required for program enrollment however we
-            need several of them to help inform our resources and support system. </h3>
-          <p>Thanks for taking the time to fill these out. </p>
-          <div class="form-item field radio">
-            <label class="title ">
-              If you have been hospitalized within the past six months?
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="hospitalized_6months" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="hospitalized_6months" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="hospitalized_6months" value="I forget" /> I forget
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="hospitalized_6months" value="Other" /> Other:
-                <input type="text" name="hospitalized_6months_other" />
-              </label>
-            </div>
-          </div>
-
-          <div class="form-item field text">
-            <label class="title">
-              If you have been hospitalized within the past six months, how many times?
-            </label>
-            <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
-          </div>
 
           <div class="form-item field radio">
             <label class="title ">
@@ -419,49 +439,6 @@
                 <input type="text" name="medication_drug_treatment_other" />
               </label>
             </div>
-          </div>
-
-          <div class="form-item field checkbox required">
-            <label class="title">I have been diagnosed with </label>
-            <fieldset id="medical_diagnoses">
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_hiv" value="HIV/AIDS" />
-                    HIV/AIDS
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_hepc" value="Hepatitis C" />
-                    Hepatitis C
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_diabetes" value="Diabetes" />
-                    Diabetes
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_mentalhealth" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
-                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_cardiovascular" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
-                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
-
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="diagnosed_respiratory" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
-                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
-                  </label>
-                </div>
-            </fieldset>
           </div>
 
           <div class="form-item field radio">
