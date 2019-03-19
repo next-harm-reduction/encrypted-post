@@ -196,7 +196,7 @@
           <div class="form-item field text">
             <label class="title">What is your preferred language?</label>
               <fieldset id="language">
-                <select name="state">
+                <select name="language">
                   <div class="option">
                      <option name="language_english" value="English">English</option>
                   </div>
@@ -663,11 +663,123 @@
           </div>
 
           <h3>The following questions are about opioid overdose</h3>
+          <p>One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.</p>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              Have you overdosed in the past year?
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose" value="Don't know" /> I don't know / I don't remember
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              Have you witnessed someone overdose in the past year?
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose_witness" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose_witness" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="overdose_witness" value="Don't know" /> I don't know / I don't remember
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+            If NEXT were able to give you naloxone for you to give out to people that you think should have it, would you be willing to distribute it?
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="dist_naloxone" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="dist_naloxone" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="dist_naloxone" value="Maybe" /> Maybe
+              </label>
+            </div>
+          </div>
 
           <div class="form-item field text">
-            <label class="title">City</label>
-            <input class="field-element" name="city" />
+            <label class="title">
+              If you answered yes to the last question, about how many people could you distribute naloxone to over a period of one month?
+            </label>
+            <input class="field-element" name="next_distro_could" placeholder="Your answer" />
           </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              Is there anything else you want us to know about you, your history, or situation?
+            </label>
+            <input class="field-element" name="more_info" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              Where do you currently obtain injection related supplies?
+            </label>
+            <input class="field-element" name="more_info" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
+              <fieldset id="distro_number">
+                <select name="distro_number">
+                  <div class="option">
+                     <option name="dist_supplies_1" value="1 - 10 people"> 1 - 10 people</option>
+                  </div>
+                  <div class="option">
+                    <option name="dist_supplies_20" value="20 - 30 people"> 20 - 30 people</option>
+                  </div>
+                  <div class="option">
+                     <option name="dist_supplies_30" value="30 - 40 people"> 30 - 40 people</option>
+                  </div>
+                  <div class="option">
+                     <option name="dist_supplies_40" value="40 - 50 people"> 40 - 50 people</option>
+                  </div>
+                  <div class="option">
+                    <option name="dist_supplies_50" value="More than 50 people"> More than 50 people</option>
+                  </div>
+                </select>
+            </fieldset>
+          </div>
+
+          <div class="form-item field text">
+            <label class="title">
+              Please provide an anonymous user handle. Ensure the handle is one you'll remember. Please no spaces. Examples are: Panda223, JoeShmo, Liz_in_Lawrence
+            </label>
+            <input class="field-element" name="handle" placeholder="Enter handle" />
+          </div>
+
+          <p>Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 24 hours.</p>
 
         <input class="button sqs-system-button sqs-editable-button"
                type='submit' value='Submit' />
