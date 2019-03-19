@@ -254,12 +254,56 @@
                 </div>
             </fieldset>
           </div>
-          
+
           <div class="form-item field text">
             <label class="title">How would you describe your sexual orientation
               (some answers may include gay, straight, bisexual, queer, lesbian, etc)
             </label>
             <input class="field-element" name="sexual_orientation" placeholder="Your answer" />
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              I am a US veteran or in active duty
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="military" value="Other" /> Other:
+                <input type="text" name="military_other" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-item field radio">
+            <label class="title ">
+              I am a parent, or parenting
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="yes" /> Yes
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="no" /> No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="parent" value="Other" /> Other:
+                <input type="text" name="parent_other" />
+              </label>
+            </div>
           </div>
 
           <div class="form-item field radio required">
@@ -312,6 +356,62 @@
             <input class="field-element" name="zip" placeholder="Your answer" />
           </div>
 
+          <div class="form-item field radio">
+            <label class="title ">
+              Have you been arrested or incarcerated in the past year? 
+            </label>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="No" />
+                No
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, on probation" />
+                Yes, on probation
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, on parole" />
+                Yes, on parole
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, on probation and parole" />
+                Yes, on probation and parole
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, awaiting trial/judge" />
+                Yes, awaiting trial/judge
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, outstanding warrant" />
+                Yes, outstanding warrant
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, case pending" />
+                Yes, case pending
+              </label>
+            </div>
+            <div class="option">
+              <label>
+                <input type="radio" name="arrested" value="Yes, none of the above" />
+                Yes, none of the above
+              </label>
+            </div>
+          </div>
+
+          <h3>The next few questions are about drugs and drug use</h3>
+          <p>Please remember, you are not putting your name on this form and all information is confidential</p>
 
           <div class="form-item field text">
             <label class="title">How old were you when you started injecting drugs?</label>
@@ -336,18 +436,6 @@
                 </div>
                 <div class="option">
                   <label>
-                    <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
-                    Alcohol
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
-                    Marijuana
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
                     <input type="checkbox" name="drugs_last_30_meth" value="Methamphetamine" />
                     Methamphetamine
                   </label>
@@ -360,20 +448,44 @@
                 </div>
                 <div class="option">
                   <label>
-                    <input type="checkbox" name="drugs_last_30_methadone" value="Methadone" />
-                    Methadone
+                    <input type="checkbox" name="drugs_last_30_pot" value="Marijuana" />
+                    Marijuana
                   </label>
                 </div>
                 <div class="option">
                   <label>
-                    <input type="checkbox" name="drugs_last_30_bupr" value="Buprenorphine" />
-                    Buprenorphine
+                    <input type="checkbox" name="drugs_last_30_alcohol" value="Alcohol" />
+                    Alcohol
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_methadone_unprescribed" value="Methadone prescribed" />
+                    Methadone (prescribed/from a doctor)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_methadone_prescribed" value="Methadone not prescribed" />
+                    Methadone (not prescribed)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_buprenorphine_unprescribed" value="Buprenorphine prescribed" />
+                    Buprenorphine (prescribed/from a doctor)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="drugs_last_30_buprenorphine_prescribed" value="Buprenorphine not prescribed" />
+                    Buprenorphine (not prescribed)
                   </label>
                 </div>
                 <div class="option">
                   <label>
                     <input type="checkbox" name="drugs_last_30_opiates" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
-                    Other opiates such as Oxycontin, Vicodin, Percocet
+                    Other opiates such as Oxycontin, Vicodin, Percocet, etc.
                   </label>
                 </div>
                 <div class="option">
@@ -390,13 +502,6 @@
                 </div>
                 <div class="option">
                   <label>
-                    <input type="checkbox" name="drugs_last_30_halluc" value="Any other drugs such as PCP, hallucinogens, etc" />
-                    Any other drugs such as PCP, hallucinogens, etc
-                    <!-- how is this different than Other? -->
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
                     <input type="checkbox"/>
                     Other
                     <input class="field-element text" name="drugs_last_30_other" />
@@ -407,83 +512,32 @@
 
           <div class="form-item field radio">
             <label class="title ">
-              Regarding medication-based treatment
+              Do you inject pills?
             </label>
             <div class="option">
               <label>
-                <input type="radio" name="medication_drug_treatment" value="I am not currently enrolled in a Methadone or Buprenorphine Program" />
-                I am not currently enrolled in a Methadone or Buprenorphine Program
+                <input type="radio" name="inject_pills" value="no" /> No
               </label>
             </div>
             <div class="option">
               <label>
-                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Methadone Program" />
-                I am currently enrolled in a Methadone Program
+                <input type="radio" name="inject_pills" value="yes often" /> Yes, often
               </label>
             </div>
             <div class="option">
               <label>
-                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Buprenorphine Program" />
-                I am currently enrolled in a Buprenorphine Program
+                <input type="radio" name="inject_pills" value="yes rarely" /> Yes, rarely
               </label>
             </div>
             <div class="option">
               <label>
-                <input type="radio" name="medication_drug_treatment" value="I am currently enrolled in a Naltrexone Program" />
-                I am currently enrolled in a Naltrexone Program
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="medication_drug_treatment" value="Other" /> Other:
-                <input type="text" name="medication_drug_treatment_other" />
+                <input type="radio" name="inject_pills" value="Other" /> Other:
+                <input type="text" name="inject_pills_other" />
               </label>
             </div>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              I am a US veteran or in active duty
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="Other" /> Other:
-                <input type="text" name="military_other" />
-              </label>
-            </div>
-          </div>
-
-          <div class="form-item field radio">
-            <label class="title ">
-              I am a parent, or parenting
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="Other" /> Other:
-                <input type="text" name="parent_other" />
-              </label>
-            </div>
-          </div>
+          <h3>The following questions are about opioid overdose</h3>
 
           <div class="form-item field radio">
             <label class="title ">
