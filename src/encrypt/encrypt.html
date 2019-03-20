@@ -38,61 +38,25 @@
             <label class="title">The First Initial of Your Mother's First Name</label>
             <input class="field-element text" name="mother_first_name_letter" />
           </div>
-          
-          <fieldset class="form-item fields date">
-              <div class="title">Date of Birth</div>
-              <legend>Date of Birth</legend>
-              <div class="field month two-digits">
-                <label class="caption"><input class="field-element" type="text" maxlength="2" data-title="Month" name="dob_month" />
-                  MM</label>
-              </div>
-              <div class="field day two-digits">
-                <label class="caption"><input class="field-element" type="text" maxlength="2" data-title="Day" name="dob_day" />
-                  DD</label>
-              </div>
-              <div class="field year four-digits">
-                <label class="caption"><input class="field-element" type="text" maxlength="4" data-title="Year" name="dob_year" />
-                  YYYY</label>
-              </div>
-          </fieldset>
-          
-          <div class="form-item field radio required">
-            <label class="title required">Gender</label>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="woman" /> Female - Identify as a Woman
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="man" /> Male - Identify as a Man
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="transwoman" /> Transgender - Identify as a Woman
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="transman" /> Transgender - Identify as a Man
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="genderqueer_bornfemale" /> Born female - Identify as Genderqueer
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="genderqueer_bornmale" /> Born male - Identify as Genderqueer
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="gender" value="other" /> Other <input class="field-element text" name="genderother" />
-              </label>
-            </div>
+
+          <div class="form-item field text required">
+            <label class="title required">Date of Birth</label>
+            <input class="field-element text" name="Date of Birth" type="date">
+          </div>
+
+          <div class="form-item field select required">
+            <fieldset>
+             <label class="title required">Select list</label>
+             <select id="myList" name="Gender">
+               <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
+               <option value="Male - Identify as a Man">Male - Identify as a Man</option>
+               <option value="Transgender - Identify as a Woman">Transgender - Identify as a Woman</option>
+               <option value="Transgender - Identify as a Man">Transgender - Identify as a Man</option>
+               <option value="Born female - Identify as Genderqueer">Born female - Identify as Genderqueer</option>
+               <option value="Born male - Identify as Genderqueer">Born male - Identify as Genderqueer</option>
+               <option value="Other">Other / Prefer not to say</option>
+             </select>
+            </fieldset>
           </div>
 
           <div class="form-item field radio">
