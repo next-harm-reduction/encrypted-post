@@ -86,7 +86,6 @@ function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
 }
 
 function sendFormResponse([encryptedKey, cipherText, initVector]) {
-  // var url = 'https://script.google.com/macros/s/AKfycby_k7iy8n9o2KQWLxrYC6VrRPYw6ssfi-ttx1nmnDw6GxZY9dVv/exec';
   var url = SUBMIT_URL
   console.log(SUBMIT_URL, GITHASH, 'IN FORM RESPONSE');
 
