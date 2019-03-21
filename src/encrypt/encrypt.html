@@ -45,9 +45,8 @@
           </div>
 
           <div class="form-item field select required">
-            <fieldset>
-             <label class="title required">Select list</label>
-             <select id="myList" name="Gender">
+             <label class="title required">Gender</label>
+             <select id="gender" name="Gender">
                <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
                <option value="Male - Identify as a Man">Male - Identify as a Man</option>
                <option value="Transgender - Identify as a Woman">Transgender - Identify as a Woman</option>
@@ -56,173 +55,82 @@
                <option value="Born male - Identify as Genderqueer">Born male - Identify as Genderqueer</option>
                <option value="Other">Other / Prefer not to say</option>
              </select>
-            </fieldset>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              (If female) I am pregnant
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="pregnant" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="pregnant" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="pregnant" value="I'm not sure" /> I'm not sure
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="pregnant" value="Other" /> Other:
-                <input type="text" name="pregnant_other" />
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">(If female) I am pregnant</label>
+             <select id="pregnancy" name="Pregnancy">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Not sure">I'm not sure / Prefer not to say</option>
+             </select>
           </div>
 
-          <div class="form-item field checkbox required">
-            <label class="title">My ethnicity could be described as</label>
-            <fieldset id="ethnicity">
-              <select name="ethnicity">
-                <div class="option">
-                   <option name="ethnicity_nonhispanic" value="Non-Hispanic">
-                   Non-Hispanic</option>
-                </div>
-                <div class="option">
-                    <option name="ethnicity_hispanic_dominican" value="Hispanic - Dominican">
-                    Hispanic - Dominican</option>
-                </div>
-                <div class="option">
-                    <option name="ethnicity_hispanic_cuban" value="Hispanic - Cuban">
-                    Hispanic - Cuban</option>
-                </div>
-                <div class="option">
-                    <option name="ethnicity_hispanic_south_american" value="Hispanic - South American">Hispanic - South American</option>
-                </div>
-                <div class="option">
-                    <option name="ethnicity_hispanic_mexican" value="Hispanic - Mexican/ Chicano/a">
-                    Hispanic - Mexican/ Chicano/a</option>
-                </div>
-                <div class="option">
-                  <label>
-                    <option name="ethnicity_hispanic_spanish" value="Hispanic - Spanish">
-                    Hispanic - Spanish</option>
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <option name="ethnicity_hispanic_other" value="Other">
-                    Other</option>
-                  </label>
-                </div>
-              </select>
-            </fieldset>
+          <div class="form-item field select required">
+             <label class="title required">(If female) I am pregnant</label>
+             <select id="pregnancy" name="Pregnancy">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Not sure">I'm not sure / Prefer not to say</option>
+             </select>
           </div>
 
-          <div class="form-item field checkbox required">
-            <label class="title">My race could be characterized as</label>
-            <fieldset id="race">
-              <select name="race">
-                <div class="option">
-                   <option name="race_afam" value="African American/Black">
-                   African American/Black</option>
-                </div>
-                <div class="option">
-                    <option name="race_caucasian" value="Caucasian/ White">
-                    Caucasian/ White</option>
-                </div>
-                <div class="option">
-                    <option name="race_natam" value="Native American or Alaska Native">
-                    Native American or Alaska Native</option>
-                </div>
-                <div class="option">
-                    <option name="race_islander" value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
-                </div>
-                <div class="option">
-                    <option name="race_asian" value="Asian">
-                    Asian</option>
-                </div>
-                <div class="option">
-                  <label>
-                    <option name="ethnicity_hispanic_other" value="Other">
-                    I don't fit into this box</option>
-                  </label>
-                </div>
-              </select>
-            </fieldset>
+          <div class="form-item field select required">
+             <label class="title required">My ethnicity could be described as</label>
+             <select id="ethnicity" name="Ethnicity">
+               <option value="Non-Hispanic">Non-Hispanic</option>
+               <option value="Hispanic - Dominican">Hispanic - Dominican</option>
+               <option value="Hispanic - Cuban">Hispanic - Cuban</option>
+               <option value="Hispanic - South American">Hispanic - South American</option>
+               <option value="Hispanic - Mexican/ Chicano/a">Hispanic - Mexican/ Chicano/a</option>
+               <option value="Hispanic - Spanish">Hispanic - Spanish</option>
+               <option value="Other">Other</option>
+             </select>
           </div>
 
-          <div class="form-item field text">
-            <label class="title">What is your preferred language?</label>
-              <fieldset id="language">
-                <select name="language">
-                  <div class="option">
-                     <option name="language_english" value="English">English</option>
-                  </div>
-                  <div class="option">
-                    <!-- <label> - Derrek's formating, try removing these --> 
-                     <option name="language_spanish" value="Spanish">Spanish</option>
-                    <!-- </label> -->
-                  </div>
-                  <div class="option">
-                     <option name="language_russian" value="Russian">Russian</option>
-                  </div>
-                  <div class="option">
-                     <option name="language_chinese" value="Chinese (Cantonese or Mandarin">Chinese (Cantonese or Mandarin</option>
-                  </div>
-                  <div class="option">
-                    <option name="another" value="Another language">Another language</option>
-                  </div>
-                </select>
-            </fieldset>
+          <div class="form-item field select required">
+             <label class="title required">My race could be described as</label>
+             <select id="ethnicity" name="Ethnicity">
+               <option value="African American/Black">African American/Black</option>
+               <option value="Caucasian/ White">Caucasian/ White</option>
+               <option value="Hispanic - Cuban">Hispanic - Cuban</option>
+               <option value="Native American or Alaska Native">Native American or Alaska Native</option>
+               <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
+               <option value="Asian">Asian</option>
+               <option value="Other">Other</option>
+             </select>
+          </div>
+
+          <div class="form-item field select required">
+             <label class="title required">What is your preferred language?</label>
+             <select id="language" name="Language">
+               <option value="English">English</option>
+               <option value="Spanish">Spanish</option>
+               <option value="Russian">Russian</option>
+               <option value="Chinese (Cantonese or Mandarin)">Chinese (Cantonese or Mandarin)</option>
+               <option value="Not sure">I'm not sure / Prefer not to say</option>
+             </select>
           </div>
 
           <h3>The following questions are also required for program enrollment</h3>
           
-          <div class="form-item field radio required">
-            <label class="title required">Do you have health insurance?</label>
-            <div class="option">
-              <label>
-                <input type="radio" name="insurance" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="insurance" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="insurance" value="I'm not sure" /> I'm not sure
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">Do you have health insurance?</label>
+             <select id="insurance" name="Health Insurance">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Not sure">I'm not sure</option>
+             </select>
           </div>
 
-          <div class="form-item field radio required">
-            <label class="title required">Do you currently have a Primary Care Provider?
-              That is, a doctor, nurse or physician assistant you see when it is not an emergency.
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="primary_care_provider" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="primary_care_provider" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="primary_care_provider" value="I'm not sure" /> I'm not sure
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">Do you currently have a Primary Care Provider?
+              That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
+             <select id="primary_care_provider" name="Primary Care Provider">
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Not sure">I'm not sure</option>
+             </select>
           </div>
 
           <div class="form-item field text">
