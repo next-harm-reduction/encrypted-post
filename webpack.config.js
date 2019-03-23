@@ -151,7 +151,7 @@ if (PRIVATE_KEY_FILE) {
     /* extraHtml */
     '<table id="results"></table>'
       + '<script src="./main.js"></script>'
-      + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptRow},500)</script>'
+      + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>'
   ))
 }
 

@@ -9,7 +9,6 @@ const decrypt = new JSEncrypt();
 decrypt.setPrivateKey(privKey);
 
 function decryptRow(row) {
-  console.log('ROW', row)
   const decryptedStringifiedView = JSON.parse(decrypt.decrypt(atob(row[0])));
   const view = decryptedStringifiedView.map(str => parseInt(str, 10));
   const keyBuff = new Uint8Array(view);
@@ -35,7 +34,9 @@ function decryptRow(row) {
         console.log(err);
       }));
 }
-window.decryptRow = decryptRow
+window.decryptOneRow = function(row) {
+  decryptFormResponses([row]).then(displayResponses);
+}
 
 function decryptFormResponses(rows) {
   return Promise.all(rows.map(decryptRow));
