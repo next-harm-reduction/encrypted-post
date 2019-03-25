@@ -13,14 +13,14 @@
             <label class="title">
               Please tell us how you learned about NEXT. Be specific.
             </label>
-            <input class="field-element" name="next_info" placeholder="Your answer" />
+            <input class="field-element" name="how_you_discovered_next" placeholder="Your answer" />
           </div>
 
           <div class="form-item field text">
             <label class="title">
               Do you have any suggestions of other places that would be good to advertise or outreach to people who use drugs that can't access syringe exchange?
             </label>
-            <input class="field-element" name="next_info" placeholder="Your answer" />
+            <input class="field-element" name="outreach_recommendations" placeholder="Your answer" />
           </div>
 
           <h3>To provide you an anonymous NYS Syringe Exchange Program ID card, we are required to gather some general information.</h3>
@@ -41,12 +41,12 @@
 
           <div class="form-item field text required">
             <label class="title required">Date of Birth</label>
-            <input class="field-element text" name="Date of Birth" type="date">
+            <input class="field-element text" name="dob" type="date">
           </div>
 
           <div class="form-item field select required">
              <label class="title required">Gender</label>
-             <select id="gender" name="Gender">
+             <select id="gender" name="gender">
                <option value="">-- Select an Option --</option>
                <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
                <option value="Male - Identify as a Man">Male - Identify as a Man</option>
@@ -60,7 +60,7 @@
 
           <div class="form-item field select required">
              <label class="title required">(If female) I am pregnant</label>
-             <select id="pregnancy" name="Pregnancy">
+             <select id="pregnancy" name="pregnancy">
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -70,7 +70,7 @@
 
           <div class="form-item field select required">
              <label class="title required">My ethnicity could be described as</label>
-             <select id="ethnicity" name="Ethnicity">
+             <select id="ethnicity" name="ethnicity">
                <option value="">--Select--</option>
                <option value="Non-Hispanic">Non-Hispanic</option>
                <option value="Hispanic - Dominican">Hispanic - Dominican</option>
@@ -84,7 +84,7 @@
 
           <div class="form-item field select required">
              <label class="title required">My race could be described as</label>
-             <select id="ethnicity" name="Ethnicity">
+             <select id="ethnicity" name="race">
                <option value="">--Select--</option>
                <option value="African American/Black">African American/Black</option>
                <option value="Caucasian/ White">Caucasian/ White</option>
@@ -98,7 +98,8 @@
 
           <div class="form-item field select required">
              <label class="title required">What is your preferred language?</label>
-             <select id="language" name="Language">
+             <select id="language" name="language">
+               <option value="">--Select--</option>
                <option value="English">English</option>
                <option value="Spanish">Spanish</option>
                <option value="Russian">Russian</option>
@@ -111,7 +112,8 @@
           
           <div class="form-item field select required">
              <label class="title required">Do you have health insurance?</label>
-             <select id="insurance" name="Health Insurance">
+             <select id="insurance" name="health_insurance">
+               <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
                <option value="Not sure">I'm not sure</option>
@@ -121,7 +123,7 @@
           <div class="form-item field select required">
              <label class="title required">Do you currently have a Primary Care Provider?
               That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
-             <select id="primary_care_provider" name="Primary Care Provider">
+             <select id="primary_care_provider" name="primary_care_provider">
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -133,7 +135,7 @@
             <label class="title">
               If you have been hospitalized within the past six months, how many times?
             </label>
-            <input class="field-element" name="hospitalized_howmany" placeholder="Your answer" />
+            <input class="field-element" name="number_times_hospitalized" placeholder="Your answer" />
           </div>
 
           <div class="form-item field text">
@@ -198,148 +200,50 @@
             <input class="field-element" name="sexual_orientation" placeholder="Your answer" />
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              I am a US veteran or in active duty
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="military" value="Other" /> Other:
-                <input type="text" name="military_other" />
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">I am a US veteran or in active duty</label>
+             <select id="military" name="military">
+               <option value="">--Select--</option>
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+             </select>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              I am a parent, or parenting
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="parent" value="Other" /> Other:
-                <input type="text" name="parent_other" />
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">I am a parent, or parenting</label>
+             <select id="parent" name="parent">
+               <option value="">--Select--</option>
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+             </select>
           </div>
 
-          <div class="form-item field radio required">
-            <label class="title required">What is your housing status?</label>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="I rent or own my own home/apartment- Stable Situation" />
-                I rent or own my own home/apartment- Stable Situation
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="I rent or own my own home/apartment- Unstable Situation" />
-                I rent or own my own home/apartment- Unstable Situation
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="I live with family or friends - Stable Situation" />
-                I live with family or friends - Stable Situation
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="I live with family or friends- Unstable Situation" />
-                I live with family or friends- Unstable Situation
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="Homeless in the Shelter System" />
-                Homeless in the Shelter System
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="Homeless not in the Shelter System" />
-                Homeless not in the Shelter System
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="housing_status" value="Other" /> Other:
-                <input type="text" name="housing_status_other" />
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">What is your housing status?</label>
+             <select id="housing_status" name="housing_status">
+               <option value="">--Select--</option>
+               <option value="I rent or own my own home/apartment- Stable Situation">I rent or own my own home/apartment- Stable Situation</option>
+               <option value="I rent or own my own home/apartment- Unstable Situation">I rent or own my own home/apartment- Unstable Situation</option>
+               <option value="I rent or own my own home/apartment- Unstable Situation">I live with family or friends - Stable Situation</option>
+               <option value="I live with family or friends- Unstable Situation">I live with family or friends- Unstable Situation</option>
+               <option value="Homeless in the Shelter System">Homeless in the Shelter System</option>
+               <option value="Homeless not in the Shelter System">Homeless not in the Shelter System</option>
+             </select>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              Have you been arrested or incarcerated in the past year? 
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="No" />
-                No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, on probation" />
-                Yes, on probation
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, on parole" />
-                Yes, on parole
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, on probation and parole" />
-                Yes, on probation and parole
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, awaiting trial/judge" />
-                Yes, awaiting trial/judge
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, outstanding warrant" />
-                Yes, outstanding warrant
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, case pending" />
-                Yes, case pending
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="arrested" value="Yes, none of the above" />
-                Yes, none of the above
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">Have you been arrested or incarcerated in the past year?</label>
+             <select id="arrested_incarcerated" name="arrested_incarcerated">
+               <option value="">--Select--</option>
+               <option value="No">No</option>
+               <option value="Yes, on probation">Yes, on probation</option>
+               <option value="Yes, on parole">Yes, on parole</option>
+               <option value="Yes, on probation and parole">Yes, on probation and parole</option>
+               <option value="Yes, awaiting trial/judge">Yes, awaiting trial/judge</option>
+               <option value="Yes, outstanding warrant">Yes, outstanding warrant</option>
+               <option value="Yes, case pending">Yes, case pending</option>
+               <option value="Yes, none of the above">Yes, none of the above</option>
+             </select>
           </div>
 
           <div class="form-item field text">
@@ -536,67 +440,34 @@
           <h3>The following questions are about opioid overdose</h3>
           <p>One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.</p>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              Have you overdosed in the past year?
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose" value="Don't know" /> I don't know / I don't remember
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">Have you overdosed in the past year?</label>
+             <select id="overdose_self" name="overdose_self">
+               <option value="">--Select--</option>
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Unsure">I don't know / I don't remember</option>
+             </select>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-              Have you witnessed someone overdose in the past year?
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose_witness" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose_witness" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="overdose_witness" value="Don't know" /> I don't know / I don't remember
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">Have you witnessed someone overdose in the past year?</label>
+             <select id="overdose_witness" name="overdose_witness">
+               <option value="">--Select--</option>
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Unsure">I don't know / I don't remember</option>
+             </select>
           </div>
 
-          <div class="form-item field radio">
-            <label class="title ">
-            If NEXT were able to give you naloxone for you to give out to people that you think should have it, would you be willing to distribute it?
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="dist_naloxone" value="yes" /> Yes
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="dist_naloxone" value="no" /> No
-              </label>
-            </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="dist_naloxone" value="Maybe" /> Maybe
-              </label>
-            </div>
+          <div class="form-item field select required">
+             <label class="title required">If NEXT were able to give you naloxone for you to give out to people that you think should have it, would you be willing to distribute it?</label>
+             <select id="dist_naloxone" name="dist_naloxone">
+               <option value="">--Select--</option>
+               <option value="Yes">Yes</option>
+               <option value="No">No</option>
+               <option value="Maybe">Maybe</option>
+             </select>
           </div>
 
           <div class="form-item field text">
@@ -622,16 +493,15 @@
 
           <div class="form-item field text">
             <label class="title">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
-              <fieldset id="distro_number">
-                <select name="distro_number">
+                <select id="supplies_to_others" name="supplies_to_others">
                   <option value="">--Choose #--</option>
+                  <option value="Just myself - no other people"> Just myself - no other people</option>
                   <option value="1 - 10 people"> 1 - 10 people</option>
                   <option value="20 - 30 people"> 20 - 30 people</option>
                   <option value="30 - 40 people"> 30 - 40 people</option>
                   <option value="40 - 50 people"> 40 - 50 people</option>
                   <option value="More than 50 people"> More than 50 people</option>
                 </select>
-            </fieldset>
           </div>
 
           <div class="form-item field text">
