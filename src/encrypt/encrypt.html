@@ -47,6 +47,7 @@
           <div class="form-item field select required">
              <label class="title required">Gender</label>
              <select id="gender" name="Gender">
+               <option value="">-- Select an Option --</option>
                <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
                <option value="Male - Identify as a Man">Male - Identify as a Man</option>
                <option value="Transgender - Identify as a Woman">Transgender - Identify as a Woman</option>
@@ -60,15 +61,7 @@
           <div class="form-item field select required">
              <label class="title required">(If female) I am pregnant</label>
              <select id="pregnancy" name="Pregnancy">
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Not sure">I'm not sure / Prefer not to say</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">(If female) I am pregnant</label>
-             <select id="pregnancy" name="Pregnancy">
+               <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
                <option value="Not sure">I'm not sure / Prefer not to say</option>
@@ -78,6 +71,7 @@
           <div class="form-item field select required">
              <label class="title required">My ethnicity could be described as</label>
              <select id="ethnicity" name="Ethnicity">
+               <option value="">--Select--</option>
                <option value="Non-Hispanic">Non-Hispanic</option>
                <option value="Hispanic - Dominican">Hispanic - Dominican</option>
                <option value="Hispanic - Cuban">Hispanic - Cuban</option>
@@ -91,6 +85,7 @@
           <div class="form-item field select required">
              <label class="title required">My race could be described as</label>
              <select id="ethnicity" name="Ethnicity">
+               <option value="">--Select--</option>
                <option value="African American/Black">African American/Black</option>
                <option value="Caucasian/ White">Caucasian/ White</option>
                <option value="Hispanic - Cuban">Hispanic - Cuban</option>
@@ -127,6 +122,7 @@
              <label class="title required">Do you currently have a Primary Care Provider?
               That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
              <select id="primary_care_provider" name="Primary Care Provider">
+               <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
                <option value="Not sure">I'm not sure</option>
@@ -350,6 +346,7 @@
             <label class="title">State</label>
             <div class="option">
               <select name="state">
+                <option value="">--Select State--</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -627,21 +624,12 @@
             <label class="title">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
               <fieldset id="distro_number">
                 <select name="distro_number">
-                  <div class="option">
-                     <option name="dist_supplies_1" value="1 - 10 people"> 1 - 10 people</option>
-                  </div>
-                  <div class="option">
-                    <option name="dist_supplies_20" value="20 - 30 people"> 20 - 30 people</option>
-                  </div>
-                  <div class="option">
-                     <option name="dist_supplies_30" value="30 - 40 people"> 30 - 40 people</option>
-                  </div>
-                  <div class="option">
-                     <option name="dist_supplies_40" value="40 - 50 people"> 40 - 50 people</option>
-                  </div>
-                  <div class="option">
-                    <option name="dist_supplies_50" value="More than 50 people"> More than 50 people</option>
-                  </div>
+                  <option value="">--Choose #--</option>
+                  <option value="1 - 10 people"> 1 - 10 people</option>
+                  <option value="20 - 30 people"> 20 - 30 people</option>
+                  <option value="30 - 40 people"> 30 - 40 people</option>
+                  <option value="40 - 50 people"> 40 - 50 people</option>
+                  <option value="More than 50 people"> More than 50 people</option>
                 </select>
             </fieldset>
           </div>

@@ -47,10 +47,11 @@ function resolveReplacementPlugin(namedPath, replacementPath) {
 const publicKeyPlugin = resolveReplacementPlugin('PUBLIC_KEY_FILE', PUBLIC_KEY_FILE)
 const privateKeyPlugin = resolveReplacementPlugin('PRIVATE_KEY_FILE', PRIVATE_KEY_FILE)
 
-function encryptor(filename, distDir, extraHtml) {
+function encryptor(filename, distDir, extraHtml, externals) {
   filename = filename || 'index.html'
   distDir = distDir || 'encrypt'
   extraHtml = extraHtml || ''
+  externals = externals || { jsencrypt: 'JSEncrypt' }
   return {
     entry: './src/encrypt/encrypt.js',
     name: 'encrypt',
@@ -58,9 +59,7 @@ function encryptor(filename, distDir, extraHtml) {
       filename: 'main.js',
       path: path.resolve(__dirname, TARGET_DIR, distDir),
     },
-    externals: {
-      jsencrypt: 'JSEncrypt'
-    },
+    externals: externals,
     plugins: [
       new webpack.DefinePlugin({
         GITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
@@ -151,7 +150,8 @@ if (PRIVATE_KEY_FILE) {
     /* extraHtml */
     '<table id="results"></table>'
       + '<script src="./main.js"></script>'
-      + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>'
+      + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>',
+    {}
   ))
 }
 

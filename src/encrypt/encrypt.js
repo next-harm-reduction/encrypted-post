@@ -87,7 +87,6 @@ function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
 
 function sendFormResponse([encryptedKey, cipherText, initVector]) {
   var url = SUBMIT_URL
-  console.log(SUBMIT_URL, GITHASH, 'IN FORM RESPONSE');
 
   return sendXhr({ key: encryptedKey,
                    fielddata: cipherText,
@@ -112,6 +111,10 @@ function main() {
     if (ele.type === 'radio' || ele.type === 'checkbox') {
       return ele.checked;
     }
+    if (String(ele.tagName).toLowerCase() === 'select') {
+      // this is a lie, but we resolve it in setValue
+      return true
+    }
     return ele.value !== '';
   }
   function setValue(ele, res) {
@@ -121,6 +124,17 @@ function main() {
         res[category].push(ele.value);
       } else {
         res[category] = [ele.value];
+      }
+    } else if (String(ele.tagName).toLowerCase() === 'select') {
+      if (ele.value) {
+        res[ele.name] = ele.value
+        return
+      }
+      var options = ele.getElementsByTagName('option')
+      for (var i=0,l=options.length; l > i; i++) {
+        if (options[i].selected && options[i].value) {
+          res[ele.name] = options[i].value
+        }
       }
     } else {
       res[ele.name] = ele.value;
