@@ -47,13 +47,16 @@ function resolveReplacementPlugin(namedPath, replacementPath) {
 const publicKeyPlugin = resolveReplacementPlugin('PUBLIC_KEY_FILE', PUBLIC_KEY_FILE)
 const privateKeyPlugin = resolveReplacementPlugin('PRIVATE_KEY_FILE', PRIVATE_KEY_FILE)
 
-const plannedExports = [
-  {
+function encryptor(filename, distDir, extraHtml) {
+  filename = filename || 'index.html'
+  distDir = distDir || 'encrypt'
+  extraHtml = extraHtml || ''
+  return {
     entry: './src/encrypt/encrypt.js',
     name: 'encrypt',
     output: {
       filename: 'main.js',
-      path: path.resolve(__dirname, TARGET_DIR, 'encrypt'),
+      path: path.resolve(__dirname, TARGET_DIR, distDir),
     },
     externals: {
       jsencrypt: 'JSEncrypt'
@@ -65,10 +68,13 @@ const plannedExports = [
         PUBLIC_KEY_FILE: JSON.stringify(PUBLIC_KEY_FILE),
       }),
       new HtmlWebpackPlugin({
-        filename: 'index.html',
+        filename: filename,
         template: 'src/encrypt/encrypt.html',
         minify: false,
-        inlineSource: '.js$'
+        inlineSource: '.js$',
+        templateParameters: {
+          extraHtml: extraHtml
+        }
       }),
       new HtmlWebpackInlineSourcePlugin()
     ],
@@ -83,7 +89,11 @@ const plannedExports = [
     },
     target: 'web',
     mode: 'production'
-  },
+  }
+}
+
+const plannedExports = [
+  encryptor(),
   {
     name: 'Google app script',
     entry: './src/encrypt/Code.gs',
@@ -136,6 +146,13 @@ if (PRIVATE_KEY_FILE) {
     target: 'web',
     mode: 'production'
   })
+  plannedExports.push(encryptor(
+    'test.html', 'decrypt',
+    /* extraHtml */
+    '<table id="results"></table>'
+      + '<script src="./main.js"></script>'
+      + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>'
+  ))
 }
 
 module.exports = plannedExports

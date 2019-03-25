@@ -49,7 +49,7 @@ function encryptFormResponse(res) {
         return btoa(jsEncrypt.encrypt(JSON.stringify(stringifiedView)));
       }
     );
-  return Promise.all([genEncryptedKey, genCipher, Promise.resolve(initVector)]);
+  return Promise.all([genEncryptedKey, genCipher, Promise.resolve(btoa(initVector.toString()))]);
 }
 
 function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
@@ -91,13 +91,13 @@ function sendFormResponse([encryptedKey, cipherText, initVector]) {
 
   return sendXhr({ key: encryptedKey,
                    fielddata: cipherText,
-                   initVector: btoa(initVector.toString()),
+                   initVector: initVector,
                    gitHash: GITHASH,
                  },
                  null,
                  function(err) { console.log('request failed', err) })
 }
-
+window.encryptDestination = { sendFormResponse: sendFormResponse }
 function main() {
   var frm = document.forms.customer;
   function clearForm() {
@@ -133,8 +133,7 @@ function main() {
         setValue(ele, res);
       }
     });
-    encryptFormResponse(res).then(sendFormResponse).then(clearForm);
+    encryptFormResponse(res).then(encryptDestination.sendFormResponse).then(clearForm);
   };
 }
-
 main()
