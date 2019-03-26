@@ -12,7 +12,7 @@ const DEFAULT_SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbwe7OLOLtxAN
 const DEFAULT_SPREADSHEET_ID = '1FyKBMiKmMvKu8QtHakIu0Ih1Mt0cjSD-xvvTLJdYQn0' // '1VmcE6WHkF_xWkhCiJGIBnwKF021LwnF7rkpfJlvtOOE'
 const TARGET_DIR = 'dist'
 const PUBLIC_KEY_FILE = process.env.PUBLIC_KEY_FILE || './rsa_2048_pub.pem'
-const PRIVATE_KEY_FILE = process.env.PRIVATE_KEY_FILE || './rsa_2048_priv.pem'
+const PRIVATE_KEY_FILE = process.env.PRIVATE_KEY_FILE || ''
 
 function resolveReplacementPlugin(namedPath, replacementPath) {
   /// This is all a bit hairy, but basically the 
