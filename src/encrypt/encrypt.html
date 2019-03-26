@@ -307,7 +307,12 @@
 
           <div class="form-item field text">
             <label class="title required">What's your zip code?</label>
-            <input class="field-element" name="Zip" placeholder="Your answer" required/>
+            <input 
+              class="field-element" 
+              name="Zip" 
+              placeholder="Your answer" 
+              required pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+              title="Please type a 5 or 9 digit zip code, '12345' or '12345-1234'"/>
           </div>
 
           <h3>The next few questions are about drugs and drug use</h3>
@@ -315,7 +320,11 @@
 
           <div class="form-item field text">
             <label class="title required">How old were you when you started injecting drugs?</label>
-            <input class="field-element" name="First Injection Age" placeholder="Your answer" required/>
+            <input class="field-element"
+            name="First Injection Age"
+            placeholder="Your answer"
+            required pattern="([1-9]|[1-8][0-9]|9[0-9])"
+            title="Enter a valid number 1-99"/>
           </div>
 
           <div class="form-item field checkbox">
@@ -412,7 +421,7 @@
           <div class="form-item field radio">
             <label class="title required">
               Do you inject pills?
-            </label required>
+            </label>
             <div class="option">
               <label>
                 <input type="radio" name="Do you inject pills?" value="no" required/> No
@@ -439,7 +448,7 @@
           <h3>The following questions are about opioid overdose</h3>
           <p>One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.</p>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">Have you overdosed in the past year?</label>
              <select id="overdose_self" name="Have you overdosed in the past year?" required>
                <option value="">--Select--</option>
@@ -449,7 +458,7 @@
              </select>
           </div>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">Have you witnessed someone overdose in the past year?</label>
              <select id="overdose_witness" name="Have you witnessed someone overdose in the past year?" required>
                <option value="">--Select--</option>
@@ -507,7 +516,12 @@
             <label class="title required">
               Please provide an anonymous user handle. Ensure the handle is one you'll remember. Please no spaces. Examples are: Panda223, JoeShmo, Liz_in_Lawrence
             </label>
-            <input class="field-element" name="Handle" placeholder="Enter handle" / required>
+            <input class="field-element"
+            name="Handle"
+            placeholder="Enter handle"
+            required pattern="^[a-z0-9_-]{3,25}$"
+            title="Please use ONLY numbers, letters and _underlines_ with no spaces."
+            />
           </div>
 
           <p>Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 24 hours.</p>
