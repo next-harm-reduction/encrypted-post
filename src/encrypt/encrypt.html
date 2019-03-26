@@ -10,10 +10,10 @@
       <form name='customer' id="customer" action="javascript:void(0)">
         <div class="field-list clear">
           <div class="form-item field text">
-            <label class="title">
+            <label class="title required">
               Please tell us how you learned about NEXT. Be specific.
             </label>
-            <input class="field-element" name="Please tell us how you learned about NEXT. Be specific." placeholder="Your answer" />
+            <input class="field-element required" name="Please tell us how you learned about NEXT. Be specific." placeholder="Your answer" required />
           </div>
 
           <div class="form-item field text">
@@ -26,27 +26,27 @@
           <h3>To provide you an anonymous NYS Syringe Exchange Program ID card, we are required to gather some general information.</h3>
           <p>Don't want an ID? That's okay. We do still need this information to create an anonymous code for you.</p>
 
-          <div class="form-item field text required">
-            <label class="title">The First Letter of your Last Name</label>
-            <input class="field-element text" name="First Letter of your Last Name" />
+          <div class="form-item field text">
+            <label class="title required">The First Letter of your Last Name</label>
+            <input class="field-element text" name="First Letter of your Last Name" required/>
           </div>
-          <div class="form-item field text required">
-            <label class="title">The First Letter of your First Name</label>
-            <input class="field-element text" name="First Letter of your First Name" />
+          <div class="form-item field text">
+            <label class="title required">The First Letter of your First Name</label>
+            <input class="field-element text" name="First Letter of your First Name" required/>
           </div>
-          <div class="form-item field text required">
-            <label class="title">The First Initial of Your Mother's First Name</label>
-            <input class="field-element text" name="First Initial of Your Mother's First Name" />
+          <div class="form-item field text">
+            <label class="title required">The First Initial of Your Mother's First Name</label>
+            <input class="field-element text" name="First Initial of Your Mother's First Name" required/>
           </div>
 
-          <div class="form-item field text required">
+          <div class="form-item field text">
             <label class="title required">Date of Birth</label>
             <input class="field-element text" name="Date of Birth" type="date">
           </div>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">Gender</label>
-             <select id="gender" name="Gender">
+             <select id="gender" name="Gender" required>
                <option value="">-- Select an Option --</option>
                <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
                <option value="Male - Identify as a Man">Male - Identify as a Man</option>
@@ -58,7 +58,7 @@
              </select>
           </div>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">(If female) I am pregnant</label>
              <select id="pregnancy" name="Preganancy">
                <option value="">--Select--</option>
@@ -68,9 +68,9 @@
              </select>
           </div>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">My ethnicity could be described as</label>
-             <select id="ethnicity" name="Ethnicity">
+             <select id="ethnicity" name="Ethnicity" required>
                <option value="">--Select--</option>
                <option value="Non-Hispanic">Non-Hispanic</option>
                <option value="Hispanic - Dominican">Hispanic - Dominican</option>
@@ -82,9 +82,9 @@
              </select>
           </div>
 
-          <div class="form-item field select required">
+          <div class="form-item field select">
              <label class="title required">My race could be described as</label>
-             <select id="ethnicity" name="Race">
+             <select id="ethnicity" name="Race" required>
                <option value="">--Select--</option>
                <option value="African American/Black">African American/Black</option>
                <option value="Caucasian/ White">Caucasian/ White</option>
@@ -98,7 +98,7 @@
 
           <div class="form-item field select required">
              <label class="title required">What is your preferred language?</label>
-             <select id="language" name="Preferred Language">
+             <select id="language" name="Preferred Language" required>
                <option value="">--Select--</option>
                <option value="English">English</option>
                <option value="Spanish">Spanish</option>
@@ -123,7 +123,7 @@
           <div class="form-item field select required">
              <label class="title required">Do you currently have a Primary Care Provider?
               That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
-             <select id="primary_care_provider" name="Primary Care Provider">
+             <select id="primary_care_provider" name="Primary Care Provider" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -145,7 +145,7 @@
             <input class="field-element" name="Have you had issues related to abscesses, cellulitis, endocarditis?" placeholder="Your answer" />
           </div>
 
-          <div class="form-item field checkbox required">
+          <div class="form-item field checkbox">
             <label class="title">Have you been diagnosed with any of the following (check all that apply) 
             </label>
             <fieldset id="Medical Diagnosis" name="Have you been diagnosed with any of the following (check all that apply)">
@@ -202,7 +202,7 @@
 
           <div class="form-item field select required">
              <label class="title required">I am a US veteran or in active duty</label>
-             <select id="military" name="Militarus Status">
+             <select id="military" name="Military Status" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -211,7 +211,7 @@
 
           <div class="form-item field select required">
              <label class="title required">I am a parent, or parenting</label>
-             <select id="parent" name="Parental Status">
+             <select id="parent" name="Parental Status" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -233,7 +233,7 @@
 
           <div class="form-item field select required">
              <label class="title required">Have you been arrested or incarcerated in the past year?</label>
-             <select id="arrested_incarcerated" name="Arrested or Incarcerated in Past Year">
+             <select id="arrested_incarcerated" name="Arrested or Incarcerated in Past Year" required>
                <option value="">--Select--</option>
                <option value="No">No</option>
                <option value="Yes, on probation">Yes, on probation</option>
@@ -247,9 +247,9 @@
           </div>
 
           <div class="form-item field text">
-            <label class="title">State</label>
+            <label class="title required">State</label>
             <div class="option">
-              <select name="State">
+              <select name="State" required>
                 <option value="">--Select State--</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -306,24 +306,24 @@
           </div>
 
           <div class="form-item field text">
-            <label class="title">What's your zip code?</label>
-            <input class="field-element" name="Zip" placeholder="Your answer" />
+            <label class="title required">What's your zip code?</label>
+            <input class="field-element" name="Zip" placeholder="Your answer" required/>
           </div>
 
           <h3>The next few questions are about drugs and drug use</h3>
           <p>Please remember, you are not putting your name on this form and all information is confidential</p>
 
           <div class="form-item field text">
-            <label class="title">How old were you when you started injecting drugs?</label>
-            <input class="field-element" name="First Injection Age" placeholder="Your answer" />
+            <label class="title required">How old were you when you started injecting drugs?</label>
+            <input class="field-element" name="First Injection Age" placeholder="Your answer" required/>
           </div>
 
-          <div class="form-item field checkbox required">
-            <label class="title">What drugs have you used in the past 30 days?</label>
-            <fieldset id="drug_use" name="What drugs have you used in the past 30 days?">
+          <div class="form-item field checkbox">
+            <label class="title required">What drugs have you used in the past 30 days?</label>
+            <fieldset id="drug_use" name="What drugs have you used in the past 30 days?" required>
                 <div class="option">
                   <label>
-                    <input type="checkbox" value="Heroin" />
+                    <input type="checkbox" value="Heroin"/>
                     Heroin
                   </label>
                 </div>
@@ -410,12 +410,12 @@
           </div>
 
           <div class="form-item field radio">
-            <label class="title ">
+            <label class="title required">
               Do you inject pills?
-            </label>
+            </label required>
             <div class="option">
               <label>
-                <input type="radio" name="Do you inject pills?" value="no" /> No
+                <input type="radio" name="Do you inject pills?" value="no" required/> No
               </label>
             </div>
             <div class="option">
@@ -441,7 +441,7 @@
 
           <div class="form-item field select required">
              <label class="title required">Have you overdosed in the past year?</label>
-             <select id="overdose_self" name="Have you overdosed in the past year?">
+             <select id="overdose_self" name="Have you overdosed in the past year?" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -451,7 +451,7 @@
 
           <div class="form-item field select required">
              <label class="title required">Have you witnessed someone overdose in the past year?</label>
-             <select id="overdose_witness" name="Have you witnessed someone overdose in the past year?">
+             <select id="overdose_witness" name="Have you witnessed someone overdose in the past year?" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -461,7 +461,7 @@
 
           <div class="form-item field select required">
              <label class="title required">If NEXT were able to give you naloxone for you to give out to people that you think should have it, would you be willing to distribute it?</label>
-             <select id="dist_naloxone" name="Would you be willing to distribute naloxone?">
+             <select id="dist_naloxone" name="Would you be willing to distribute naloxone?" required>
                <option value="">--Select--</option>
                <option value="Yes">Yes</option>
                <option value="No">No</option>
@@ -484,15 +484,15 @@
           </div>
 
           <div class="form-item field text">
-            <label class="title">
+            <label class="title required">
               Where do you currently obtain injection related supplies?
             </label>
-            <input class="field-element" name="Where do you currently obtain injection related supplies?" placeholder="Your answer" />
+            <input class="field-element" name="Where do you currently obtain injection related supplies?" placeholder="Your answer" required/>
           </div>
 
           <div class="form-item field text">
-            <label class="title">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
-                <select id="supplies_to_others" name="How many other people do you plan to get supplies from NEXT for?">
+            <label class="title required">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
+                <select id="supplies_to_others" name="How many other people do you plan to get supplies from NEXT for?" required>
                   <option value="">--Choose #--</option>
                   <option value="Just myself - no other people"> Just myself - no other people</option>
                   <option value="1 - 10 people"> 1 - 10 people</option>
@@ -504,10 +504,10 @@
           </div>
 
           <div class="form-item field text">
-            <label class="title">
+            <label class="title required">
               Please provide an anonymous user handle. Ensure the handle is one you'll remember. Please no spaces. Examples are: Panda223, JoeShmo, Liz_in_Lawrence
             </label>
-            <input class="field-element" name="Handle" placeholder="Enter handle" />
+            <input class="field-element" name="Handle" placeholder="Enter handle" / required>
           </div>
 
           <p>Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 24 hours.</p>
@@ -519,6 +519,11 @@
     </div>
   </div>
 </div>
+
+<style>
+    .required:after { content:" *"; color: #d93025;}
+</style>
+
 <%= extraHtml %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.js"
         integrity="sha256-EC4uJBUVJajz55e16crIlugfOU9dQLHFVqVjw9E0wpI="
