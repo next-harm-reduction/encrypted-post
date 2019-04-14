@@ -119,11 +119,16 @@ function main() {
   }
   function setValue(ele, res) {
     if (ele.type === 'checkbox') {
-      var category = (ele.closest('fieldset') || {}).id
-      if (category && res[category]) {
-        res[category].push(ele.value);
+      if (ele.name) {
+        res[ele.name] = ele.checked ? ele.value : ''
       } else {
-        res[category] = [ele.value];
+        var category = (ele.closest('fieldset') || {}).id
+        console.log('checkbox category', category, ele.value, res[category])
+        if (category && res[category]) {
+          res[category].push(ele.value);
+        } else {
+          res[category] = [ele.value];
+        }
       }
     } else if (String(ele.tagName).toLowerCase() === 'select') {
       if (ele.value) {
