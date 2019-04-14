@@ -206,7 +206,7 @@ function main() {
           setValue(ele, res);
         }
       });
-      res['Submit Date'] = (new Date()).toISOString()
+      res['Submitted At'] = (new Date()).toISOString()
       res['Enrollment Code'] = 'E-' + generateEnrollmentCode()
       encryptFormResponse(res, {
         enrollmentCode: res['Enrollment Code'],
