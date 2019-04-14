@@ -4,7 +4,7 @@ import pubKey from 'PUBLIC_KEY_FILE';
 require('./closestPolyfill');
 require('./textEncoderPolyfill');
 
-function encryptFormResponse(res) {
+function encryptFormResponse(res, passedData) {
   var crypto = window.crypto || window.msCrypto;
   var initVector = window.crypto.getRandomValues(new Uint32Array(8));
   var jsEncrypt = new JSEncrypt();
@@ -49,7 +49,10 @@ function encryptFormResponse(res) {
         return btoa(jsEncrypt.encrypt(JSON.stringify(stringifiedView)));
       }
     );
-  return Promise.all([genEncryptedKey, genCipher, Promise.resolve(btoa(initVector.toString()))]);
+  return Promise.all([genEncryptedKey,
+                      genCipher,
+                      Promise.resolve(btoa(initVector.toString())),
+                      Promise.resolve(passedData)]);
 }
 
 function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
@@ -85,7 +88,41 @@ function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
   return x
 }
 
-function sendFormResponse([encryptedKey, cipherText, initVector]) {
+function generateEnrollmentCode() {
+  var char32 = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ'
+  var getChar = function() { return char32[parseInt(Math.random() * 32, 0)] }
+  return getChar() + getChar() + getChar() + getChar() + getChar() + getChar()
+}
+
+function fakeFill() {
+  Array.from(document.forms.customer).forEach(function(ele) {
+    if (ele.tagName.toLowerCase() === 'select') {
+      // random option
+      var options = ele.getElementsByTagName('option')
+      for (var i=0, l=options.length; l>i; i++) {
+        if (options[i].value) {
+          options[i].selected = true
+          break
+        }
+      }
+    } else if (ele.type === 'checkbox') {
+      // ignore
+    } else if (ele.type === 'radio') {
+      ele.checked = true // will end up selecting last one for all
+    } else if (ele.type === 'date') {
+      ele.value = String(1950 + parseInt( Math.random() * 60 )) + '-01-01'
+    } else if (ele.tagName.toLowerCase() == 'input' && ele.type != 'submit') {
+      if (ele.pattern) {
+        // hopefully zipcode
+        ele.value = '11111'
+      } else {
+        ele.value = generateEnrollmentCode()
+      }
+    }
+  })
+}
+
+function sendFormResponse([encryptedKey, cipherText, initVector, passedData]) {
   var url = SUBMIT_URL
 
   return sendXhr({ key: encryptedKey,
@@ -93,14 +130,30 @@ function sendFormResponse([encryptedKey, cipherText, initVector]) {
                    initVector: initVector,
                    gitHash: GITHASH,
                  },
-                 null,
-                 function(err) { console.log('request failed', err) })
+                 function(retval) {
+                   if (passedData && passedData.success) {
+                     passedData.success(passedData, retval)
+                   }
+                 },
+                 function(err) {
+                   console.log('request failed', err)
+                   if (passedData && passedData.error) {
+                     passedData.error(passedData, err)
+                   }
+                 })
 }
-window.encryptDestination = { sendFormResponse: sendFormResponse }
+window.encryptDestination = { sendFormResponse: sendFormResponse,
+                              fakeFill: fakeFill }
 function main() {
   var frm = document.forms.customer;
-  function clearForm() {
-    if (window.confirm('Your request has been received. Do you want to clear local data?')) {
+  function clearForm(passedData) {
+    var confirmMessage = ['Your request has been received.',
+                          'Do you want to clear local data?']
+    var enrollmentCode = (passedData && passedData.enrollmentCode)
+    if (enrollmentCode) {
+      confirmMessage.splice(1, 0, 'Your enrollment code is ' + enrollmentCode + '.')
+    }
+    if (window.confirm(confirmMessage.join(' '))) {
       frm.reset();
     }
   }
@@ -153,7 +206,16 @@ function main() {
           setValue(ele, res);
         }
       });
-      encryptFormResponse(res).then(encryptDestination.sendFormResponse).then(clearForm);
+      res['Submit Date'] = (new Date()).toISOString()
+      res['Enrollment Code'] = 'E-' + generateEnrollmentCode()
+      encryptFormResponse(res, {
+        enrollmentCode: res['Enrollment Code'],
+        success: clearForm,
+        error: function(passedData, err) {
+          alert('Your form submission failed. Please return to the form later and try again.')
+        }
+      })
+        .then(encryptDestination.sendFormResponse)
     };
   }
 }
