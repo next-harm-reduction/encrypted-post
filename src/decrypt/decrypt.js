@@ -53,11 +53,17 @@ function decryptFormResponses(rows) {
 }
 
 function displayResponses(rows) {
+  const renameMap = {}
   const keyMap = rows.reduce((keys, row) => {
     Object.keys(row).forEach((key) => {
       if (!keys[key]) {
+        // DataTable goes nuts with '.' in key
+        const finalKey = key.replace(/\./g, ';')
         /* eslint-disable no-param-reassign */
-        keys[key] = true;
+        if (/\./.test(key)) {
+          renameMap[key] = finalKey
+        }
+        keys[finalKey] = true;
         /* eslint-enable no-param-reassign */
       }
     });
@@ -65,7 +71,15 @@ function displayResponses(rows) {
   }, {});
   const keys = Object.keys(keyMap).map(key => ({ data: key, title: key }));
   $('#results').DataTable({
-    data: rows,
+    data: rows.filter(x => Object.keys(x).length > 0).map(row => {
+      Object.keys(renameMap).forEach(key => {
+        if (row[key]) {
+          row[renameMap[key]] = row[key]
+          delete row[key]
+        }
+      })
+      return row
+    }),
     columns: keys,
   });
   return rows;
