@@ -9,30 +9,40 @@ const decrypt = new JSEncrypt();
 decrypt.setPrivateKey(privKey);
 
 function decryptRow(row) {
-  const decryptedStringifiedView = JSON.parse(decrypt.decrypt(atob(row[0])));
-  const view = decryptedStringifiedView.map(str => parseInt(str, 10));
-  const keyBuff = new Uint8Array(view);
-  const fetchKey = crypto.subtle.importKey('raw', keyBuff, 'AES-GCM', false, ['decrypt']);
-  const dataString = atob(row[1]);
-  const dataBuffer = new Uint8Array(dataString.length);
-  for (let i = 0; i < dataString.length; i += 1) {
-    dataBuffer[i] = dataString.charCodeAt(i);
+  let decryptedStringifiedView = null
+  try {
+     decryptedStringifiedView = JSON.parse(decrypt.decrypt(atob(row[0])));
+  } catch(err) {
+    decryptedStringifiedView = null
   }
-  const iv = atob(row[2]).split(',').map(str => parseInt(str, 10));
-  const ivBuffer = new Uint32Array(iv);
-  return fetchKey.then(
-    key => crypto.subtle.decrypt(
-      {
-        name: 'AES-GCM',
-        iv: ivBuffer,
-      },
-      key,
-      dataBuffer).then((payload) => {
-        const decoder = new TextDecoder();
-        return JSON.parse(decoder.decode(payload));
-      }).catch((err) => {
-        console.log(err);
-      }));
+  if (decryptedStringifiedView) {
+    const view = decryptedStringifiedView.map(str => parseInt(str, 10));
+    const keyBuff = new Uint8Array(view);
+    const fetchKey = crypto.subtle.importKey('raw', keyBuff, 'AES-GCM', false, ['decrypt']);
+    const dataString = atob(row[1]);
+    const dataBuffer = new Uint8Array(dataString.length);
+    for (let i = 0; i < dataString.length; i += 1) {
+      dataBuffer[i] = dataString.charCodeAt(i);
+    }
+    const iv = atob(row[2]).split(',').map(str => parseInt(str, 10));
+    const ivBuffer = new Uint32Array(iv);
+    return fetchKey.then(
+      key => crypto.subtle.decrypt(
+        {
+          name: 'AES-GCM',
+          iv: ivBuffer,
+        },
+        key,
+        dataBuffer).then((payload) => {
+          const decoder = new TextDecoder();
+          console.log('decrypted', JSON.parse(decoder.decode(payload)))
+          return JSON.parse(decoder.decode(payload));
+        }).catch((err) => {
+          console.log(err);
+        }));
+  } else {
+    return Promise.resolve({})
+  }
 }
 window.decryptOneRow = function(row) {
   decryptFormResponses([row]).then(displayResponses);

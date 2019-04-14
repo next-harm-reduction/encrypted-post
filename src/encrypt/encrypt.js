@@ -140,14 +140,16 @@ function main() {
       res[ele.name] = ele.value;
     }
   }
-  frm.onsubmit = function() {
-    var res = {};
-    Array.from(frm.elements).forEach(function(ele) {
-      if (ele && isSet(ele)) {
-        setValue(ele, res);
-      }
-    });
-    encryptFormResponse(res).then(encryptDestination.sendFormResponse).then(clearForm);
-  };
+  if (frm) {
+    frm.onsubmit = function() {
+      var res = {};
+      Array.from(frm.elements).forEach(function(ele) {
+        if (ele && isSet(ele)) {
+          setValue(ele, res);
+        }
+      });
+      encryptFormResponse(res).then(encryptDestination.sendFormResponse).then(clearForm);
+    };
+  }
 }
 main()
