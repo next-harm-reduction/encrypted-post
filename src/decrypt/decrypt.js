@@ -54,13 +54,13 @@ function decryptFormResponses(rows) {
 
 function displayResponses(rows) {
   const renameMap = {}
-  const keyMap = rows.reduce((keys, row) => {
+  const columns = Object.keys(rows.reduce((keys, row) => {
     Object.keys(row).forEach((key) => {
       if (!keys[key]) {
         // DataTable goes nuts with '.' in key
-        const finalKey = key.replace(/\./g, ';')
+        const finalKey = key.replace(/\.|\,|\n/g, '_')
         /* eslint-disable no-param-reassign */
-        if (/\./.test(key)) {
+        if (/\.|\,|\n/.test(key)) {
           renameMap[key] = finalKey
         }
         keys[finalKey] = true;
@@ -68,20 +68,35 @@ function displayResponses(rows) {
       }
     });
     return keys;
-  }, {});
-  const keys = Object.keys(keyMap).map(key => ({ data: key, title: key }));
-  $('#results').DataTable({
-    data: rows.filter(x => Object.keys(x).length > 0).map(row => {
-      Object.keys(renameMap).forEach(key => {
-        if (row[key]) {
-          row[renameMap[key]] = row[key]
-          delete row[key]
-        }
-      })
-      return row
-    }),
-    columns: keys,
+  }, {}));
+  let outputRows = rows.filter(x => Object.keys(x).length > 0).map(row => {
+    Object.keys(renameMap).forEach(key => {
+      if (row[key]) {
+        row[renameMap[key]] = row[key]
+        delete row[key]
+      }
+    })
+    return row
   });
+  $('#results').DataTable({
+    data: outputRows,
+    columns: columns.map(key => ({ data: key, title: key }))
+  });
+  const isPrivateData = (col) => {
+    return /name|zip|birth|address|phone|mobile/i.test(col)
+  }
+  const anonColumns = columns.filter(c => !isPrivateData(c))
+  var csvContent = "data:text/csv;charset=utf-8,";
+  csvContent = csvContent + anonColumns.join(',') + '\n'
+  csvContent = csvContent + outputRows.map(
+    row =>
+      anonColumns.map(col => (row[col] && row[col].replace(/,/g, ';')) || '').join(',')
+  ).join('\n')
+  window.csvContent = csvContent
+  $('#csvanonymous').attr({href: csvContent,
+                           download: 'AnonymizedData.csv'})
+  //open.window(encodeURI(window.csvContent))
+  // submit at, handle, state, zip, enrollment code
   return rows;
 }
 
