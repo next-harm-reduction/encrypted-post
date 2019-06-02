@@ -86,15 +86,20 @@ function displayResponses(rows) {
     return /name|zip|birth|address|phone|mobile/i.test(col)
   }
   const anonColumns = columns.filter(c => !isPrivateData(c))
-  var csvContent = "data:text/csv;charset=utf-8,";
-  csvContent = csvContent + anonColumns.join(',') + '\n'
-  csvContent = csvContent + outputRows.map(
-    row =>
-      anonColumns.map(col => (row[col] && row[col].replace(/,/g, ';')) || '').join(',')
-  ).join('\n')
-  window.csvContent = csvContent
-  $('#csvanonymous').attr({href: csvContent,
+
+  function generateCsvContent(columns) {
+    var csvContent = "data:text/csv;charset=utf-8,";
+    csvContent = csvContent + columns.join(',') + '\n'
+    csvContent = csvContent + outputRows.map(
+      row =>
+        columns.map(col => (row[col] && row[col].replace(/,/g, ';')) || '').join(',')
+    ).join('\n')
+    return csvContent
+  }
+  $('#csvanonymous').attr({href: generateCsvContent(anonColumns),
                            download: 'AnonymizedData.csv'})
+  $('#csvprivate').attr({href: generateCsvContent(columns),
+                           download: 'PrivateData.csv'})
   //open.window(encodeURI(window.csvContent))
   // submit at, handle, state, zip, enrollment code
   return rows;

@@ -148,8 +148,10 @@ if (PRIVATE_KEY_FILE) {
   plannedExports.push(encryptor(
     'test.html', 'decrypt',
     /* extraHtml */
-    '<h2>Responses</h2><table id="results"></table>'
-      + '<a id="csvanonymous" href="">Download Anonymized CSV</a>'
+    '<h2>Responses</h2>'
+      + '<a id="csvanonymous" href="">Download Anonymized CSV</a><br />'
+      + '<a id="csvprivate" href="">Download PRIVATE DATA CSV</a>'
+      + '<table id="results"></table>'
       + '<script src="./main.js"></script>'
       + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>',
     {}
