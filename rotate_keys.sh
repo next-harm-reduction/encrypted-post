@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
 DATE=$(date +'%Y-%m-%d')
 SUBMIT_URL=https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec
 
