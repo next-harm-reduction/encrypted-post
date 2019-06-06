@@ -35,7 +35,7 @@ function decryptRow(row) {
         key,
         dataBuffer).then((payload) => {
           const decoder = new TextDecoder();
-          console.log('decrypted', JSON.parse(decoder.decode(payload)))
+          // console.log('decrypted', JSON.parse(decoder.decode(payload)))
           return JSON.parse(decoder.decode(payload));
         }).catch((err) => {
           console.log(err);
@@ -88,12 +88,16 @@ function displayResponses(rows) {
   const anonColumns = columns.filter(c => !isPrivateData(c))
 
   function generateCsvContent(columns) {
-    var csvContent = "data:text/csv;charset=utf-8,";
-    csvContent = csvContent + columns.join(',') + '\n'
-    csvContent = csvContent + outputRows.map(
-      row =>
-        columns.map(col => (row[col] && row[col].replace(/,/g, ';')) || '').join(',')
-    ).join('\n')
+    const csvContent =
+          ("data:text/csv;base64,"
+           + btoa(columns.join(',')
+                  + "\n"
+                  + outputRows.map(
+                    row =>
+                      columns.map(col => (row[col] && row[col].replace(/,/g, ';')) || '').join(',')
+                  ).join("\n")
+                 )
+          )
     return csvContent
   }
   $('#csvanonymous').attr({href: generateCsvContent(anonColumns),
