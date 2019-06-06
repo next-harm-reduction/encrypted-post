@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
-DATE=$(date +'%Y-%m-%d')
+DATE=$(date +'%Y-%m-%d-%H:%M:%S')
 SUBMIT_URL=https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk9Vq76QwA0Cj8yiX4_SDS7Z/exec
 
 mkdir -p old_keys
