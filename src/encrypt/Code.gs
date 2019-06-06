@@ -15,14 +15,14 @@ function doPost(e){
       "gitHash"
   ];
   var data = e.parameter;
-  /*
-  params.forEach(function(p) {
-     if ((data[p]) === null || data[p] === '') {
-         throw "Missing required field: {0}".format(p);
-     }
-  });
-  */
-  appendToSpreadsheet(data.key, data.fielddata, data.initVector, data.gitHash);
+  // new submission
+  if (data.key && data.gitHash) {
+    appendToSpreadsheet(data.key, data.fielddata, data.initVector, data.gitHash);
+  }
+  // new public key
+  if (data.date && data.publicKey) {
+    appendToSpreadsheet(data.date, data.publicKey);
+  }
   return ContentService
     .createTextOutput(JSON.stringify({'foo': 'success'}))
     .setMimeType(ContentService.MimeType.JAVASCRIPT);
