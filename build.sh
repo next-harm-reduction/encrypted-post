@@ -7,5 +7,7 @@ SUBMIT_URL=https://script.google.com/macros/s/AKfycbwe7OLOLtxAN_smlnNFyQWDqbjVVk
 PUBLIC_KEY_FILE=./rsa_2048_pub.pem
 PRIVATE_KEY_FILE=./rsa_2048_priv.pem
 
+npm install
+
 ./node_modules/.bin/webpack
 
