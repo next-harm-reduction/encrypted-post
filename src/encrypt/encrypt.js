@@ -70,9 +70,13 @@ function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
   } else if (method === 'GET') {
     x.open(method, url + '?' + queryString, true);
   }
+  var ranCallback = false
   if (successCallback) {
     x.onreadystatechange = function(b) {
-      if (x.readyState >= 2) { successCallback(x) }
+      if (!ranCallback && x.readyState >= 2) {
+        ranCallback = true
+        successCallback(x)
+      }
     }
   }
   if (errCallback) {

@@ -2,3 +2,4 @@ node_modules
 dist
 *~
 rsa_*.pem
+test_build.sh
