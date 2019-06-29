@@ -1,3 +1,4 @@
+const fs = require('fs');
 const CopyPlugin = require('copy-webpack-plugin');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -47,17 +48,19 @@ function resolveReplacementPlugin(namedPath, replacementPath) {
 const publicKeyPlugin = resolveReplacementPlugin('PUBLIC_KEY_FILE', PUBLIC_KEY_FILE)
 const privateKeyPlugin = resolveReplacementPlugin('PRIVATE_KEY_FILE', PRIVATE_KEY_FILE)
 
-function encryptor(filename, distDir, extraHtml, externals) {
+function encryptor(filename, distDir, extraHtml, externals, template) {
+  template = template || 'src/encrypt/encrypt.html'
   filename = filename || 'index.html'
-  distDir = distDir || 'encrypt'
+  distDir = distDir || TARGET_DIR + '/encrypt'
   extraHtml = extraHtml || ''
   externals = externals || { jsencrypt: 'JSEncrypt' }
+  console.log('TEMPLATE ENCYRPTOR', template)
   return {
     entry: './src/encrypt/encrypt.js',
     name: 'encrypt',
     output: {
       filename: 'main.js',
-      path: path.resolve(__dirname, TARGET_DIR, distDir),
+      path: path.resolve(__dirname, distDir),
     },
     externals: externals,
     plugins: [
@@ -68,7 +71,7 @@ function encryptor(filename, distDir, extraHtml, externals) {
       }),
       new HtmlWebpackPlugin({
         filename: filename,
-        template: 'src/encrypt/encrypt.html',
+        template: template,
         minify: false,
         inlineSource: '.js$',
         templateParameters: {
@@ -146,7 +149,7 @@ if (PRIVATE_KEY_FILE) {
     mode: 'production'
   })
   plannedExports.push(encryptor(
-    'test.html', 'decrypt',
+    'test.html', TARGET_DIR + '/decrypt',
     /* extraHtml */
     '<h2>Responses</h2>'
       + '<a id="csvanonymous" href="">Download Anonymized CSV</a><br />'
@@ -155,6 +158,16 @@ if (PRIVATE_KEY_FILE) {
       + '<script src="./main.js"></script>'
       + '<script>setTimeout(function(){encryptDestination.sendFormResponse = decryptOneRow},500)</script>',
     {}
+  ))
+}
+
+if (fs.existsSync(path.resolve(__dirname, '../next-website/src/enrollment.template'))) {
+  plannedExports.push(encryptor(
+    'enrollment.page',
+    '../next-website/pages/',
+    '', //extraHtml
+    { jsencrypt: 'JSEncrypt' }, //externals
+    path.resolve(__dirname, '../next-website/src/enrollment.template')
   ))
 }
 
