@@ -54,7 +54,6 @@ function encryptor(filename, distDir, extraHtml, externals, template) {
   distDir = distDir || TARGET_DIR + '/encrypt'
   extraHtml = extraHtml || ''
   externals = externals || { jsencrypt: 'JSEncrypt' }
-  console.log('TEMPLATE ENCYRPTOR', template)
   return {
     entry: './src/encrypt/encrypt.js',
     name: 'encrypt',
