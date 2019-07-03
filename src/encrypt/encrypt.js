@@ -151,14 +151,10 @@ window.encryptDestination = { sendFormResponse: sendFormResponse,
 function main() {
   var frm = document.forms.customer;
   function clearForm(passedData) {
-    var confirmMessage = ['Your request has been received.',
-                          'Do you want to clear local data?']
     var enrollmentCode = (passedData && passedData.enrollmentCode)
-    if (enrollmentCode) {
-      confirmMessage.splice(1, 0, 'Your enrollment code is ' + enrollmentCode + '.')
-    }
-    if (window.confirm(confirmMessage.join(' '))) {
-      frm.reset();
+    frm.reset();
+    if (typeof window.formComplete == 'function') {
+      window.formComplete(enrollmentCode)
     }
   }
   function isSet(ele) {
