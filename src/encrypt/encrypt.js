@@ -98,7 +98,10 @@ function generateEnrollmentCode() {
   return getChar() + getChar() + getChar() + getChar() + getChar() + getChar()
 }
 
-function fakeFill() {
+function fakeFill(stepThrough, randomCheckBoxes) {
+  if (stepThrough) {
+    window.nextPrev(2);
+  }
   Array.from(document.forms.customer).forEach(function(ele) {
     if (ele.tagName.toLowerCase() === 'select') {
       // random option
@@ -109,8 +112,15 @@ function fakeFill() {
           break
         }
       }
-    } else if (ele.type === 'checkbox') {
+    } else if (ele.type === 'button') {
       // ignore
+    } else if (ele.type === 'checkbox') {
+      // ignore most checkboxes
+      if (ele.name === 'checkValid') {
+        ele.checked = true
+      } else if (randomCheckBoxes && Math.random() > 0.9) {
+        ele.checked = true
+      }
     } else if (ele.type === 'radio') {
       ele.checked = true // will end up selecting last one for all
     } else if (ele.type === 'date') {
@@ -124,6 +134,9 @@ function fakeFill() {
       }
     }
   })
+  if (stepThrough && typeof window.cbxValid === 'function') {
+    window.cbxValid();
+  }
 }
 
 function sendFormResponse([encryptedKey, cipherText, initVector, passedData]) {
