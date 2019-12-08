@@ -1,5 +1,5 @@
 node_modules
 dist
 *~
-rsa_*.pem
+rsa_*priv.pem
 test_build.sh

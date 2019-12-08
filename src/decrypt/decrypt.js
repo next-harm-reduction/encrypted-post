@@ -5,15 +5,30 @@ import privKey from 'PRIVATE_KEY_FILE';
 
 require('datatables.net');
 
-const decrypt = new JSEncrypt();
-decrypt.setPrivateKey(privKey);
+// for multiple keys
+const decrypts = [];
+privKey.split('-----END RSA PRIVATE KEY-----').forEach((key) => {
+  if (/\w/g.test(key)) {
+    const decrypt = new JSEncrypt();
+    decrypt.setPrivateKey(key + '-----END RSA PRIVATE KEY-----');
+    decrypts.push(decrypt);
+  }
+})
+
 
 function decryptRow(row) {
   let decryptedStringifiedView = null
-  try {
-     decryptedStringifiedView = JSON.parse(decrypt.decrypt(atob(row[0])));
-  } catch(err) {
-    decryptedStringifiedView = null
+
+  // iterate through the keys
+  for (let h = 0; h < decrypts.length; h++) {
+    try {
+      decryptedStringifiedView = JSON.parse(decrypts[h].decrypt(atob(row[0])));
+      if (decryptedStringifiedView) {
+        break;
+      }
+    } catch(err) {
+      decryptedStringifiedView = null;
+    }
   }
   if (decryptedStringifiedView) {
     const view = decryptedStringifiedView.map(str => parseInt(str, 10));
@@ -45,7 +60,9 @@ function decryptRow(row) {
   }
 }
 window.decryptOneRow = function(row) {
-  decryptFormResponses([row]).then(displayResponses);
+  window.rows = window.rows || []
+  window.rows.push(row)
+  decryptFormResponses(window.rows).then(displayResponses);
 }
 
 function decryptFormResponses(rows) {
@@ -78,7 +95,10 @@ function displayResponses(rows) {
     })
     return row
   });
+  //$("#results").DataTable().destroy()
+  window.jjj = $
   $('#results').DataTable({
+    //destroy: true,
     data: outputRows,
     columns: columns.map(key => ({ data: key, title: key }))
   });
