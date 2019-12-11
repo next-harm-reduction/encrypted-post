@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Update Code
+Comment=Updates code for encrypted-post
+TryExec=~/encrypted-post/update_code.sh
+Exec=vim %F
+Terminal=true
+Type=Application
+StartupNotify=false
