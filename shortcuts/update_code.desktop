@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=Update Code
 Comment=Updates code for encrypted-post
-TryExec=~/encrypted-post/update_code.sh
-Exec=vim %F
+Exec=gnome-terminal -e 'bash -c "/home/jamie/encrypted-post/update_code.sh"'
 Terminal=true
 Type=Application
 StartupNotify=false
