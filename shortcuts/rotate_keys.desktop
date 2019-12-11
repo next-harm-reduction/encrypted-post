@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Rotate keys (only for emergencies when instructed)
+Comment=Rotates the public key and uploads it
+Exec=gnome-terminal -e 'bash -c "/home/jamie/encrypted-post/rotate_keys.sh; echo Press enter to return; read line"'
+Terminal=true
+Type=Application
+StartupNotify=false

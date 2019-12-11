@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Update NEXT Interface
+Comment=Rebuilds the interface for decryption
+Exec=gnome-terminal -e 'bash -c "/home/jamie/encrypted-post/build.sh; echo Press enter to return; read line"'
+Terminal=true
+Type=Application
+StartupNotify=false

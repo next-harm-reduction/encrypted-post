@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Update Code
 Comment=Updates code for encrypted-post
-Exec=gnome-terminal -e 'bash -c "/home/jamie/encrypted-post/update_code.sh"'
+Exec=gnome-terminal -e 'bash -c "/home/jamie/encrypted-post/update_code.sh; echo Press enter to return; read line"'
 Terminal=true
 Type=Application
 StartupNotify=false
