@@ -163,13 +163,14 @@ function fakeFill(stepThrough, randomCheckBoxes) {
   }
 }
 
-function sendFormResponse([encryptedKey, cipherText, initVector, passedData, pubKey]) {
+function sendFormResponse([encryptedKey, cipherText, initVector, passedData, pubKeyUsed]) {
   var url = SUBMIT_URL
 
   return sendXhr({ key: encryptedKey,
                    fielddata: cipherText,
                    initVector: initVector,
                    gitHash: GITHASH,
+                   pubKeyUsed: pubKeyUsed
                  },
                  function(retval) {
                    if (passedData && passedData.success) {

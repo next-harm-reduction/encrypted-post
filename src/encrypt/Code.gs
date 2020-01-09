@@ -9,15 +9,16 @@ function doPost(e){
   // which form someone submits might be too much information -- better to handle that
   // in decryption
   var params = [
-      "key",
-      "fielddata",
-      "initVector",
-      "gitHash"
+    "key",
+    "fielddata",
+    "initVector",
+    "gitHash",
+    "pubKeyUsed"
   ];
   var data = e.parameter;
   // new submission
   if (data.key && data.gitHash) {
-    appendToSpreadsheet(data.key, data.fielddata, data.initVector, data.gitHash);
+    appendToSpreadsheet(data.key, data.fielddata, data.initVector, data.gitHash, data.pubKeyUsed);
   }
   // new public key
   if (data.date && data.publicKey) {
