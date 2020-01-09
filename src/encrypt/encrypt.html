@@ -7,538 +7,872 @@
 <div class="form-wrapper">
   <div class="form-inner-wrapper">
     <div id="cryptosubmit">
-      <form name='customer' id="customer" action="javascript:void(0)">
+      <div class="row sqs-row">
+      <form name="customer" id="customer" action="javascript:void(0)" autocomplete="off">
+
         <div class="field-list clear">
-          <div class="form-item field text">
-            <label class="title required">
-              Please tell us how you learned about NEXT. Be specific.
-            </label>
-            <input class="field-element required" name="Please tell us how you learned about NEXT. Be specific." placeholder="Your answer" required />
-          </div>
+        <h2 class="fs-title">Secure Enrollment for NEXT's Mail-based Supply Distribution</h2>
 
-          <div class="form-item field text">
-            <label class="title">
-              Do you have any suggestions of other places that would be good to advertise or outreach to people who use drugs that can't access syringe exchange?
-            </label>
-            <input class="field-element" name="Do you have any suggestions of other places that would be good to advertise or outreach to people who use drugs that can't access syringe exchange?" placeholder="Your answer" />
-          </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
 
-          <h3>To provide you an anonymous NYS Syringe Exchange Program ID card, we are required to gather some general information.</h3>
-          <p>Don't want an ID? That's okay. We do still need this information to create an anonymous code for you.</p>
+          <!-- One "tab" for each step in the form: -->
+         
+          <div class="tab">
+                <p>NEXT Distro is an online and mail-based harm reduction program. We provide services to individuals who inject drugs that can not or will not access an in-person syringe exchange.</p>
+                <p>As part of our work, NEXT has developed a mail-based supply distribution program. We mail you the supplies you would receive if you walked into a traditional syringe exchange office.</p>
+                <p>NEXT Distro is a group of trained harm reductionists and activists. Don't hesitate to reach out if you have questions at <a href="mailto:info@nextdistro.org">info@nextdistro.org</a></p>
+                <p>NEXT provides supplies to individuals who use drugs yet cannot access resources in their own community. To see if your county has a syringe exchange program, please take a look at <u><a href="https://www.naloxoneforall.org/sep" target="_blank">our directory</a></u>. To learn more about NEXT, <u><a href="https://nextdistro.org/history" target="_blank">visit our About page</a></u>.</p>
+                <p>If you choose to enroll with NEXT Distro, the process will take you approximately 10-15 minutes.</p>
+            <div class="sqs-block button-block sqs-block-button custom-button-row">
+              <div class="sqs-block-content">
+                <button type="button" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" id="nextBtn" onclick="nextPrev(1)">Start</button>
 
-          <div class="form-item field text">
-            <label class="title required">The First Letter of your Last Name</label>
-            <input class="field-element text" name="First Letter of your Last Name" required/>
-          </div>
-          <div class="form-item field text">
-            <label class="title required">The First Letter of your First Name</label>
-            <input class="field-element text" name="First Letter of your First Name" required/>
-          </div>
-          <div class="form-item field text">
-            <label class="title required">The First Initial of Your Mother's First Name</label>
-            <input class="field-element text" name="First Initial of Your Mother's First Name" required/>
-          </div>
+                <!-- <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/pwud-people-who-use-drugs'">Syringe Access</button>
 
-          <div class="form-item field text">
-            <label class="title required">Date of Birth</label>
-            <input class="field-element text" name="Date of Birth" type="date">
-          </div>
-
-          <div class="form-item field select">
-             <label class="title required">Gender</label>
-             <select id="gender" name="Gender" required>
-               <option value="">-- Select an Option --</option>
-               <option value="Female - Identify as a Woman">Female - Identify as a Woman</option>
-               <option value="Male - Identify as a Man">Male - Identify as a Man</option>
-               <option value="Transgender - Identify as a Woman">Transgender - Identify as a Woman</option>
-               <option value="Transgender - Identify as a Man">Transgender - Identify as a Man</option>
-               <option value="Born female - Identify as Genderqueer">Born female - Identify as Genderqueer</option>
-               <option value="Born male - Identify as Genderqueer">Born male - Identify as Genderqueer</option>
-               <option value="Other">Other / Prefer not to say</option>
-             </select>
-          </div>
-
-          <div class="form-item field select">
-             <label class="title required">(If female) I am pregnant</label>
-             <select id="pregnancy" name="Preganancy">
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Not sure">I'm not sure / Prefer not to say</option>
-             </select>
-          </div>
-
-          <div class="form-item field select">
-             <label class="title required">My ethnicity could be described as</label>
-             <select id="ethnicity" name="Ethnicity" required>
-               <option value="">--Select--</option>
-               <option value="Non-Hispanic">Non-Hispanic</option>
-               <option value="Hispanic - Dominican">Hispanic - Dominican</option>
-               <option value="Hispanic - Cuban">Hispanic - Cuban</option>
-               <option value="Hispanic - South American">Hispanic - South American</option>
-               <option value="Hispanic - Mexican/ Chicano/a">Hispanic - Mexican/ Chicano/a</option>
-               <option value="Hispanic - Spanish">Hispanic - Spanish</option>
-               <option value="Other">Other</option>
-             </select>
-          </div>
-
-          <div class="form-item field select">
-             <label class="title required">My race could be described as</label>
-             <select id="ethnicity" name="Race" required>
-               <option value="">--Select--</option>
-               <option value="African American/Black">African American/Black</option>
-               <option value="Caucasian/ White">Caucasian/ White</option>
-               <option value="Hispanic - Cuban">Hispanic - Cuban</option>
-               <option value="Native American or Alaska Native">Native American or Alaska Native</option>
-               <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
-               <option value="Asian">Asian</option>
-               <option value="Other">Other</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">What is your preferred language?</label>
-             <select id="language" name="Preferred Language" required>
-               <option value="">--Select--</option>
-               <option value="English">English</option>
-               <option value="Spanish">Spanish</option>
-               <option value="Russian">Russian</option>
-               <option value="Chinese (Cantonese or Mandarin)">Chinese (Cantonese or Mandarin)</option>
-               <option value="Not sure">I'm not sure / Prefer not to say</option>
-             </select>
-          </div>
-
-          <h3>The following questions are also required for program enrollment</h3>
-          
-          <div class="form-item field select required">
-             <label class="title required">Do you have health insurance?</label>
-             <select id="insurance" name="Health Insurance">
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Not sure">I'm not sure</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">Do you currently have a Primary Care Provider?
-              That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
-             <select id="primary_care_provider" name="Primary Care Provider" required>
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Not sure">I'm not sure</option>
-             </select>
-          </div>
-
-          <div class="form-item field text">
-            <label class="title">
-              If you have been hospitalized within the past six months, how many times?
-            </label>
-            <input class="field-element" name="Hospitalized" placeholder="Your answer" />
-          </div>
-
-          <div class="form-item field text">
-            <label class="title">
-              Have you had issues related to abscesses, cellulitis, endocarditis? Please explain.
-            </label>
-            <input class="field-element" name="Have you had issues related to abscesses, cellulitis, endocarditis?" placeholder="Your answer" />
-          </div>
-
-          <div class="form-item field checkbox">
-            <label class="title">Have you been diagnosed with any of the following (check all that apply) 
-            </label>
-            <fieldset id="Medical Diagnosis" name="Have you been diagnosed with any of the following (check all that apply)">
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="HIV/AIDS" />
-                  HIV/AIDS
-                </label>
+                <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/how-does-it-work'">General Info</button> -->
               </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="Hepatitis C" />
-                  Hepatitis C
-                </label>
-              </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="Diabetes" />
-                  Diabetes
-                </label>
-              </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
-                  Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
-                </label>
-              </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
-                  Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
-                </label>
-              </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
-                  Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
-                </label>
-              </div>
-              <div class="option">
-                <label>
-                  <input type="checkbox" value="other"> Other <input class="field-element text">
-                </label>
-              </div>
-            </fieldset>
+            </div>
           </div>
 
-          <div class="form-item field text">
-            <label class="title">How would you describe your sexual orientation
-              (some answers may include gay, straight, bisexual, queer, lesbian, etc)
-            </label>
-            <input class="field-element" name="Sexual Orientation" placeholder="Your answer" />
+          <div class="tab">
+
+              <h3 class="fs-subtitle">How our service works:</h3>
+              <ol>
+                <li>Complete our encrypted enrollment form. Use a complete, correct mailing address and make sure to include contact information if we have questions.</li>
+                <li>NEXT staff will decrypt your enrollment form using a secure computer.</li>
+                <li>NEXT staff will contact you within 48 hours with any questions.  We will provide a supply list so you can order harm reduction supplies.</li>
+                <li>Next staff will discretely package your supplies using the name and address provided in your enrollment. In almost all cases, supplies will be shipped via USPS.</li>
+              </ol>
+              <p>Shipping times vary depending on your location. NEXT can print postage using a postage meter or can send your package with USPS tracking number. Please consider your privacy and safety when choosing your preference.</p>
+
+            <div class="sqs-block button-block sqs-block-button custom-button-row">
+              <div class="sqs-block-content">
+
+                <button type="button" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" id="prevBtn" onclick="nextPrev(-1)">Back</button>
+
+                <button type="button" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" id="nextBtn" onclick="nextPrev(1)">Continue</button>
+
+              </div>
+            </div>
           </div>
 
-          <div class="form-item field select required">
-             <label class="title required">I am a US veteran or in active duty</label>
-             <select id="military" name="Military Status" required>
+          <div class="tab">
+              <h2>Fine Print</h2>
+              <h3>Security and Privacy</h3>
+              <p>NEXT's enrollment form uses a PGP encryption system to ensure your personal information is not accessible to anyone other than the individual NEXT staff member mailing your package. This means, the information you write in the enrollment shows up in our form as long alphanumeric strings that can not be read by anyone without a specific code. We take your privacy seriously and our team has built a secure system that prioritizes security.<p> 
+              <h3>Enrollment</h3>
+              <p>Aggregate information from enrollments may be used in program narratives, reporting, research, and for any other purpose. No identifying information that ties program participants to information they submit on the enrollment form will ever be accessible to a third party.</p>
+              <h3>Statement of Identity</h3>
+
+                    <input type="checkbox" name="checkValid" class="checkValid" id="check1" required />
+                    <label for="check1">I am enrolling in NEXT Distro because I, myself, need safer injection supplies and harm reduction materials.</label><br><br>
+ 
+                    <input type="checkbox" name="checkValid" class="checkValid" id="check2" required />
+                    <label for="check2">I understand that the NEXT Distro enrollment system uses PGP encryption and will never pair my name or address with any information I share through the enrollment process.</label><br><br>
+
+                    <input type="checkbox" name="checkValid" class="checkValid" id="check3" required />
+                    <label for="check3">I am enrolling in NEXT Distro using my correct full address including apartment or lot number.</label><br><br>
+
+                    <input type="checkbox" name="checkValid" class="checkValid" id="check4" required />
+                    <label for="check4">I understand that if I do not receive a response from NEXT Distro within 48 hours I should doublecheck to ensure a response did not go in spam, message request, or the equivalant of my communication method of choice. If I am unsure, I will contact NEXT Distro.</label><br><br>
+
+                    <input type="checkbox" name="checkValid" class="checkValid" id="check5" required />
+                    <label for="check5">I understand that I can communicate with NEXT staff if I have specific supply or privacy needs, no packages will be automatically sent to me- or sent without my expressed request.  This means that if a staff member reaches out for clarification or a question on your order, NEXT will not mail supplies until we receive your response.</label><br>
+
+<!--             <div class="form-item field text">
+              <label class="title required">Enter Your Initials</label>
+              <input 
+                id="terms"
+                type="text"
+                class="field-element text" 
+                placeholder="Your initials"/>
+              <label class="title required">Today's Date</label>
+              <input 
+                id="terms"
+                type="text"
+                class="field-element text"/>
+            </div> -->
+
+            <div class="sqs-block button-block sqs-block-button custom-button-row">
+              <div class="sqs-block-content">
+                
+                <input type="button" value="Back" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" id="prevBtn" onclick="nextPrev(-1)"></button>
+                
+                <input type="button" value="Not Interested" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/donate'"></button> 
+
+                <input type="button" value="Enroll" class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" id="nextBtn" onclick="return cbxValid()"></button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="tab">
+
+            <div class="form-item field text">
+              <label class="title required">Please tell us how you learned about NEXT. Be specific.</label>
+              <input 
+                class="field-element text" 
+                name="Please tell us how you learned about NEXT. Be specific." placeholder="Your answer" 
+                required/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">First Name</label>
+              <input class="field-element text" name="First Name" required/>
+            </div>
+            <div class="form-item field text">
+              <label class="title required">Last Name</label>
+              <input class="field-element text" name="Last Name" required/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">Address (this is the location where you want supplies sent in your name)</label>
+              <input class="field-element text" name="Address" required/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title">Address (Apartment or Unit No.) </label>
+              <input class="field-element text" name="Address 2"/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title">City </label>
+              <input class="field-element text" name="City" required/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">State</label>
+              <div class="option">
+                <select name="State" required>
+                  <option value="">--Select State--</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">Zip Code</label>
+              <input 
+                type="number"
+                class="field-element text" 
+                name="Zip" 
+                placeholder="" 
+                required pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+                title="Please type a 5 or 9 digit zip code, '12345' or '12345-1234'"/>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">Date of Birth</label>
+              <input class="field-element text" name="Date of Birth" type="date"/>
+            </div>
+
+            <div class="form-item field select">
+               <label class="title required">Gender</label>
+               <select id="gender" name="Gender" required>
+                 <option value="">-- Select an Option --</option>
+                 <option value="Woman">Woman</option>
+                 <option value="Man">Man</option>
+                 <option value="Nonbinary">Nonbinary</option>
+                 <option value="Other">Other</option>
+                 <option value="Prefer not to say">Prefer not to say</option>
+               </select>
+            </div>
+
+            <div class="form-item field select">
+               <label class="title required">Would you describe yourself as transgender?</label>
+               <select id="Transgender" name="Transgender" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Other">Other</option>
+                 <option value="Prefer not to say">Prefer not to say</option>
+               </select>
+            </div>
+
+            <div class="form-item field text required">
+              <label class="title">How would you describe your sexual orientation
+                (some answers may include gay, straight, bisexual, queer, lesbian, etc)
+              </label>
+              <input class="field-element" name="Sexual Orientation" placeholder="Your answer" / required>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">I am a US veteran or in active duty</label>
+               <select id="military" name="Military Status" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+               </select>
+            </div>
+
+            <div class="form-item field select">
+               <label class="title required">I am pregnant or may be pregnant:</label>
+               <select id="pregnancy" name="Preganancy">
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Other">I'm not sure</option>
+                 <option value="N/A">N/A</option>
+               </select>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">I am a parent, or parenting</label>
+               <select id="parent" name="Parental Status" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+               </select>
+            </div>
+
+            <div class="form-item field checkbox">
+              <label class="title">My ethnicity could be described as: 
+              </label>
+              <fieldset id="Ethnicity" name="My ethnicity could be described as">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - Asian" value="Asian" />
+                    Asian
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - Black/African American" value="Black/African American" />
+                    Black/African American
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - Hispanic/Latinx" value="Hispanic/Latinx" />
+                    Hispanic/Latinx
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - Black/African American" value="Black/African American" />
+                    Black/African American
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Native American or Alaskan Native" value="Ethnicity - Native American or Alaskan Native" />
+                    Native American or Alaskan Native
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Native Hawaiian or Pacific Islander" value="Ethnicity - Native Hawaiian or Pacific Islander" />
+                    Native Hawaiian or Pacific Islander
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - White/Caucasian" value="White/Caucasian" />
+                    White/Caucasian
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Ethnicity - Other" value="Other" />
+                    Other
+                  </label>
+                </div>
+                 <div class="option">
+                  <label>
+                    <input type="checkbox" name="Prefer not to answer" value="Prefer not to answer" />
+                    Prefer not to answer
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title">Is there anything else you would like us to know to describe your identity? 
+              </label>
+              <input class="field-element" name="Identity - Other Info" placeholder="Your answer" />
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">What is your preferred language?</label>
+               <select id="language" name="Preferred Language" required>
+                 <option value="">--Select--</option>
+                 <option value="English">English</option>
+                 <option value="Spanish">Spanish</option>
+                 <option value="Russian">Russian</option>
+                 <option value="Chinese (Cantonese or Mandarin)">Chinese (Cantonese or Mandarin)</option>
+                 <option value="Other">Other</option>
+               </select>
+            </div>
+
+            <h3>As a reminder, this form is encrypted and will not be accessed by a third party.</h3>
+            
+            <div class="form-item field select required">
+               <label class="title required">Do you have health insurance?</label>
+               <select id="insurance" name="Health Insurance">
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Not sure">I'm not sure</option>
+               </select>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">Do you currently have a Primary Care Provider?
+                That is, a doctor, nurse or physician assistant you see when it is not an emergency.</label>
+               <select id="primary_care_provider" name="Primary Care Provider" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Not sure">I'm not sure</option>
+               </select>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title">
+                If you have been hospitalized within the past six months, how many times?
+              </label>
+              <input class="field-element" name="Hospitalized" placeholder="Your answer" />
+            </div>
+
+            <div class="form-item field text">
+              <label class="title">
+                Have you had issues related to abscesses, cellulitis, endocarditis? Please explain.
+              </label>
+              <input class="field-element" name="Have you had issues related to abscesses, cellulitis, endocarditis?" placeholder="Your answer" />
+            </div>
+
+            <div class="form-item field checkbox">
+              <label class="title">Have you been diagnosed with any of the following (check all that apply) 
+              </label>
+              <fieldset id="Medical Diagnosis" name="Have you been diagnosed with any of the following (check all that apply)">
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - HIV/AIDS" value="HIV/AIDS" />
+                    HIV/AIDS
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - Hepatitis C" value="Hepatitis C" />
+                    Hepatitis C
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - Diabetes" value="Diabetes" />
+                    Diabetes
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" value="Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)" />
+                    Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" value="Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)" />
+                    Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" name="Diagnosed - Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" value="Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)" />
+                    Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+                  </label>
+                </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" Name="Diagnosed - Other" value="Other"> Other <input class="field-element text" name="Other" value=""/>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">What is your housing status?</label>
+               <select id="housing_status" name="Housing Status">
+                 <option value="">--Select--</option>
+                 <option value="I rent or own my own home/apartment- Stable Situation">I rent or own my own home/apartment- Stable Situation</option>
+                 <option value="I rent or own my own home/apartment- Unstable Situation">I rent or own my own home/apartment- Unstable Situation</option>
+                 <option value="I rent or own my own home/apartment- Unstable Situation">I live with family or friends - Stable Situation</option>
+                 <option value="I live with family or friends- Unstable Situation">I live with family or friends- Unstable Situation</option>
+                 <option value="Homeless in the Shelter System">Homeless in the Shelter System</option>
+                 <option value="Homeless not in the Shelter System">Homeless not in the Shelter System</option>
+                  <option value="Other">My housing status is not described here</option>
+               </select>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">Have you been arrested or incarcerated in the past year?</label>
+               <select id="arrested_incarcerated" name="Arrested or Incarcerated in Past Year" required>
+                 <option value="">--Select--</option>
+                 <option value="No">No</option>
+                 <option value="Yes, on probation">Yes, on probation</option>
+                 <option value="Yes, on parole">Yes, on parole</option>
+                 <option value="Yes, on probation and parole">Yes, on probation and parole</option>
+                 <option value="Yes, awaiting trial/judge">Yes, awaiting trial/judge</option>
+                 <option value="Yes, outstanding warrant">Yes, outstanding warrant</option>
+                 <option value="Yes, case pending">Yes, case pending</option>
+                 <option value="Yes, none of the above">Yes, none of the above</option>
+               </select>
+            </div>
+
+            <h3>The next few questions are about drugs and drug use</h3>
+            <p>As a reminder this form is secure, your information will be kept confidential.</p>
+
+            <div class="form-item field text">
+              <label class="title required">How old were you when you started injecting drugs?</label>
+              <input 
+                class="field-element"
+                name="Age Started Injecting"
+                placeholder="Your answer"/>
+            </div>
+
+            <div class="form-item field select required">
+               <label class="title required">About how many times per day do you inject?</label>
+               <select id="Injection frequency" name="Injection frequency" required>
                <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">I am a parent, or parenting</label>
-             <select id="parent" name="Parental Status" required>
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">What is your housing status?</label>
-             <select id="housing_status" name="Housing Status">
-               <option value="">--Select--</option>
-               <option value="I rent or own my own home/apartment- Stable Situation">I rent or own my own home/apartment- Stable Situation</option>
-               <option value="I rent or own my own home/apartment- Unstable Situation">I rent or own my own home/apartment- Unstable Situation</option>
-               <option value="I rent or own my own home/apartment- Unstable Situation">I live with family or friends - Stable Situation</option>
-               <option value="I live with family or friends- Unstable Situation">I live with family or friends- Unstable Situation</option>
-               <option value="Homeless in the Shelter System">Homeless in the Shelter System</option>
-               <option value="Homeless not in the Shelter System">Homeless not in the Shelter System</option>
-             </select>
-          </div>
-
-          <div class="form-item field select required">
-             <label class="title required">Have you been arrested or incarcerated in the past year?</label>
-             <select id="arrested_incarcerated" name="Arrested or Incarcerated in Past Year" required>
-               <option value="">--Select--</option>
-               <option value="No">No</option>
-               <option value="Yes, on probation">Yes, on probation</option>
-               <option value="Yes, on parole">Yes, on parole</option>
-               <option value="Yes, on probation and parole">Yes, on probation and parole</option>
-               <option value="Yes, awaiting trial/judge">Yes, awaiting trial/judge</option>
-               <option value="Yes, outstanding warrant">Yes, outstanding warrant</option>
-               <option value="Yes, case pending">Yes, case pending</option>
-               <option value="Yes, none of the above">Yes, none of the above</option>
-             </select>
-          </div>
-
-          <div class="form-item field text">
-            <label class="title required">State</label>
-            <div class="option">
-              <select name="State" required>
-                <option value="">--Select State--</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
+                <option value="Less than once per day">Less than once per day</option>
+                <option value="Once per day">Once per day</option>
+                <option value="2 - 5 Times per day">2 - 5 Times per day</option>
+                <option value="6 - 10 Times per day">6 - 10 Times per day</option>
+                <option value="11+ Times per day">11+ Times per day</option>
               </select>
             </div>
-          </div>
 
-          <div class="form-item field text">
-            <label class="title required">What's your zip code?</label>
-            <input 
-              class="field-element" 
-              name="Zip" 
-              placeholder="Your answer" 
-              required pattern="^[0-9]{5}(?:-[0-9]{4})?$"
-              title="Please type a 5 or 9 digit zip code, '12345' or '12345-1234'"/>
-          </div>
-
-          <h3>The next few questions are about drugs and drug use</h3>
-          <p>Please remember, you are not putting your name on this form and all information is confidential</p>
-
-          <div class="form-item field text">
-            <label class="title required">How old were you when you started injecting drugs?</label>
-            <input class="field-element"
-            name="First Injection Age"
-            placeholder="Your answer"/>
-          </div>
-
-          <div class="form-item field checkbox">
-            <label class="title required">What drugs have you used in the past 30 days?</label>
-            <fieldset id="drug_use" name="What drugs have you used in the past 30 days?" required>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Heroin"/>
-                    Heroin
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Cocaine" />
-                    Cocaine
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Methamphetamine" />
-                    Methamphetamine
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Crack-cocaine" />
-                    Crack-cocaine
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Marijuana" />
-                    Marijuana
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Alcohol" />
-                    Alcohol
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Methadone prescribed" />
-                    Methadone (prescribed/from a doctor)
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Methadone not prescribed" />
-                    Methadone (not prescribed)
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Buprenorphine prescribed" />
-                    Buprenorphine (prescribed/from a doctor)
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Buprenorphine not prescribed" />
-                    Buprenorphine (not prescribed)
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
-                    Other opiates such as Oxycontin, Vicodin, Percocet, etc.
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Benzos such as Valium, Ativan, Xanax" />
-                    Benzos such as Valium, Ativan, Xanax
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox" value="Synthetic marijuana/ K2" />
-                    Synthetic marijuana/ K2
-                  </label>
-                </div>
-                <div class="option">
-                  <label>
-                    <input type="checkbox"/>
-                    Other
-                    <input class="field-element text"/>
-                  </label>
-                </div>
-            </fieldset>
-          </div>
-
-          <div class="form-item field radio">
-            <label class="title required">
-              Do you inject pills?
-            </label>
-            <div class="option">
-              <label>
-                <input type="radio" name="Do you inject pills?" value="no" required/> No
-              </label>
+            <div class="form-item field text">
+              <label class="title required">How do you currently dispose of your used syringes? Please be specific. </label>
+              <input class="field-element text" name="Syringe Disposal"/>
             </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="Do you inject pills?" value="yes often" /> Yes, often
-              </label>
+
+            <div class="form-item field checkbox">
+              <label class="title required">What drugs have you used in the past 30 days?</label>
+              <fieldset id="drug_use" name="What drugs have you used in the past 30 days?" required>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Heroin" value="Heroin"/>
+                      Heroin
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Cocaine" value="Cocaine" />
+                      Cocaine
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Methamphetamine" value="Methamphetamine" />
+                      Methamphetamine
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Crack-cocaine" value="Crack-cocaine" />
+                      Crack-cocaine
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Marijuana" value="Marijuana" />
+                      Marijuana
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Alcohol" value="Alcohol" />
+                      Alcohol
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Methadone prescribed" value="Methadone prescribed" />
+                      Methadone (prescribed/from a doctor)
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Methadone not prescribed" value="Methadone not prescribed" />
+                      Methadone (not prescribed)
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Buprenorphine prescribed" value="Buprenorphine prescribed" />
+                      Buprenorphine (prescribed/from a doctor)
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Buprenorphine not prescribed" value="Buprenorphine not prescribed" />
+                      Buprenorphine (not prescribed)
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Other opiates such as Oxycontin, Vicodin, Percocet" value="Other opiates such as Oxycontin, Vicodin, Percocet" />
+                      Other opiates such as Oxycontin, Vicodin, Percocet, etc.
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Benzos such as Valium, Ativan, Xanax" value="Benzos such as Valium, Ativan, Xanax" />
+                      Benzos such as Valium, Ativan, Xanax
+                    </label>
+                  </div>
+                  <div class="option">
+                    <label>
+                      <input type="checkbox" name="30 Day Drug Use - Synthetic marijuana/ K2" value="Synthetic marijuana/ K2" />
+                      Synthetic marijuana/ K2
+                    </label>
+                  </div>
+                <div class="option">
+                  <label>
+                    <input type="checkbox" Name="30 Day Drug Use - Other" value="Other"> Other <input class="field-element text" name="Other" value=""/>
+                  </label>
+                </div>
+              </fieldset>
             </div>
-            <div class="option">
-              <label>
-                <input type="radio" name="Do you inject pills?" value="yes rarely" /> Yes, rarely
+
+            <div class="form-item field radio">
+              <label class="title required">
+                Do you inject pills?
               </label>
+              <div class="option">
+                <label>
+                  <input type="radio" name="Do you inject pills?" value="no" required /> No
+                </label>
+              </div>
+              <div class="option">
+                <label>
+                  <input type="radio" name="Do you inject pills?" value="yes often" /> Yes, often
+                </label>
+              </div>
+              <div class="option">
+                <label>
+                  <input type="radio" name="Do you inject pills?" value="yes rarely" /> Yes, rarely
+                </label>
+              </div>
             </div>
-            <div class="option">
-              <label>
-                <input type="radio" value="Other" /> Other:
-                <input type="text" name="Do you inject pills?" />
+
+            <h3>The following questions are about opioid overdose</h3>
+            <p>One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.</p>
+
+            <div class="form-item field select">
+               <label class="title required">Do you currently have naloxone (or Narcan)?</label>
+               <select id="currently_has_naloxone" name="Do you currently have naloxone (or Narcan)?" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Unsure">I don't know / I don't remember</option>
+               </select>
+            </div>
+
+            <div class="form-item field select">
+               <label class="title required">Have you overdosed in the past year?</label>
+               <select id="overdose_self" name="Have you overdosed in the past year?" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Unsure">I don't know / I don't remember</option>
+               </select>
+            </div>
+
+            <div class="form-item field select">
+               <label class="title required">Have you witnessed someone overdose in the past year?</label>
+               <select id="overdose_witness" name="Have you witnessed someone overdose in the past year?" required>
+                 <option value="">--Select--</option>
+                 <option value="Yes">Yes</option>
+                 <option value="No">No</option>
+                 <option value="Unsure">I don't know / I don't remember</option>
+               </select>
+            </div>
+
+            <div class="form-item field text">
+              <label class="title required">
+                Where do you currently obtain injection related supplies?
               </label>
+              <input class="field-element" name="Where do you currently obtain injection related supplies?" placeholder="Your answer" required/>
             </div>
-          </div>
 
-          <h3>The following questions are about opioid overdose</h3>
-          <p>One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.</p>
+            <div class="form-item field text">
+              <label class="title required">
+                Can you explain why you have difficulty accessing syringes in your own community? Please be as specific as possible.”
+              </label>
+              <input class="field-element" name="Can you explain why you have difficulty accessing syringes in your own community? Please be as specific as possible." placeholder="Your answer" required/>
+            </div>
 
-          <div class="form-item field select">
-             <label class="title required">Have you overdosed in the past year?</label>
-             <select id="overdose_self" name="Have you overdosed in the past year?" required>
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Unsure">I don't know / I don't remember</option>
-             </select>
-          </div>
+            <div class="form-item field text">
+              <label class="title">
+                Is there anything else we should know about you, your history, or situation?
+              </label>
+              <input class="field-element" name="Other Information" placeholder="Your answer" />
+            </div>
 
-          <div class="form-item field select">
-             <label class="title required">Have you witnessed someone overdose in the past year?</label>
-             <select id="overdose_witness" name="Have you witnessed someone overdose in the past year?" required>
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Unsure">I don't know / I don't remember</option>
-             </select>
-          </div>
+            <div class="form-item field text">
+              <label class="title required">In addition to getting supplies for yourself, about how many people do you expect will receive supplies that we send to you for their own use?</label>
+                  <select id="supplies_to_others" name="How many other people do you plan to get supplies from NEXT for?" required>
+                    <option value="">--Choose #--</option>
+                    <option value="Just myself - no other people"> Just myself - no other people</option>
+                    <option value="1 - 10 people"> 1 - 10 people</option>
+                    <option value="20 - 30 people"> 20 - 30 people</option>
+                    <option value="30 - 40 people"> 30 - 40 people</option>
+                    <option value="40 - 50 people"> 40 - 50 people</option>
+                    <option value="More than 50 people"> More than 50 people</option>
+                  </select>
+            </div>
 
-          <div class="form-item field select required">
-             <label class="title required">If NEXT were able to give you naloxone for you to give out to people that you think should have it, would you be willing to distribute it?</label>
-             <select id="dist_naloxone" name="Would you be willing to distribute naloxone?" required>
-               <option value="">--Select--</option>
-               <option value="Yes">Yes</option>
-               <option value="No">No</option>
-               <option value="Maybe">Maybe</option>
-             </select>
-          </div>
+            <div class="form-item field text">
+              <label class="title required"> NEXT usually uses USPS, and we can send your package one of two ways. Please take a minute to think about which option works best for you: </label>
+              <select id="tracked_package" name="Shipping Preference" required>
+                <option value="">--Choose an option--</option>
+                <option value="Tracked"> NEXT will send me a tracking number so I will know when to expect my package</option>
+                <option value="Untracked">NEXT should use a postage meter to get postage for my package. This means my package will not be tracked by the postal system.</option>
+                  </select>
+            </div>
 
-          <div class="form-item field text">
-            <label class="title">
-              If you answered yes to the last question, about how many people could you distribute naloxone to over a period of one month?
-            </label>
-            <input class="field-element" name="How many people could you distribute naloxone to over a period of one month?" placeholder="Your answer" />
-          </div>
+            <div class="form-item field text">
+              <label class="title required">
+                Please provide a user handle, we will use this handle to communicate with you. Ensure the handle is one you'll remember. Please do not use any spaces. Examples are: Panda223, JoeShmo, Liz_Star, 777Ryder
+              </label>
+              <input class="field-element"
+              name="Handle"
+              placeholder="Enter handle"
+              required pattern="^[aA-zZ0-9_-]{3,25}$"
+              title="Use ONLY numbers, letters and _underlines_. Must be at least three characters."
+              />
+            </div>
 
-          <div class="form-item field text">
-            <label class="title">
-              Is there anything else you want us to know about you, your history, or situation?
-            </label>
-            <input class="field-element" name="Other Information" placeholder="Your answer" />
-          </div>
-
-          <div class="form-item field text">
-            <label class="title required">
-              Where do you currently obtain injection related supplies?
-            </label>
-            <input class="field-element" name="Where do you currently obtain injection related supplies?" placeholder="Your answer" required/>
-          </div>
-
-          <div class="form-item field text">
-            <label class="title required">In addition to getting supplies for you, how many other people do you plan to get supplies from NEXT for?</label>
-                <select id="supplies_to_others" name="How many other people do you plan to get supplies from NEXT for?" required>
-                  <option value="">--Choose #--</option>
-                  <option value="Just myself - no other people"> Just myself - no other people</option>
-                  <option value="1 - 10 people"> 1 - 10 people</option>
-                  <option value="20 - 30 people"> 20 - 30 people</option>
-                  <option value="30 - 40 people"> 30 - 40 people</option>
-                  <option value="40 - 50 people"> 40 - 50 people</option>
-                  <option value="More than 50 people"> More than 50 people</option>
-                </select>
-          </div>
-
-          <div class="form-item field text">
-            <label class="title required">
-              Please provide an anonymous user handle. Ensure the handle is one you'll remember. Please no spaces. Examples are: Panda223, JoeShmo, Liz_in_Lawrence
-            </label>
-            <input class="field-element"
-            name="Handle"
-            placeholder="Enter handle"
-            required pattern="^[aA-zZ0-9_-]{3,25}$"
-            title="Use ONLY numbers, letters and _underlines_."
-            />
-          </div>
-
-          <p>Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 24 hours.</p>
+          <p>Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 48 hours.</p>
 
           <input class="button sqs-system-button sqs-editable-button"
                type='submit' value='Submit' />
         </div>
-      </form>
+      </div>
+
+      </div>
     </div>
   </div>
+  </form>
+  </div>
+  </div>
+  </div>
 </div>
-
-<style>
-    .required:after { content:" *"; color: #d93025;}
-</style>
-
 <%= extraHtml %>
+<style>
+
+/*basic form styles*/
+#customer {
+  max-width: 1000px;
+}
+
+ /*Mark input boxes that gets an error on validation: */
+#terms.invalid {
+  background-color: #ffdddd;
+}
+
+.required:after { content:" *"; color: #d93025;}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none; 
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.custom-button-pad {
+  margin: 0.2em;
+}
+
+.custom-button-row {
+  width: 80%;
+}
+
+</style>
+<script>
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+  showTab(currentTab); // Display the current tab
+
+  function showTab(n) {
+    // This function will display the specified tab of the form ...
+    var x = document.getElementsByClassName("tab");
+    x[n].style.display = "block";
+    // ... and fix the Previous/Next buttons:
+    // if (n == 0) {
+    //   document.getElementById("prevBtn").style.display = "none";
+    // } else {
+    //   document.getElementById("prevBtn").style.display = "inline";
+    // }
+    // if (n == (x.length - 1)) {
+    //   document.getElementById("nextBtn").innerHTML = "Submit";
+    // } else {
+    //   document.getElementById("nextBtn").innerHTML = "Next";
+    // }
+    // ... and run a function that displays the correct step indicator:
+    fixStepIndicator(n)
+  }
+
+  function nextPrev(n) {
+    // This function will figure out which tab to display
+    var x = document.getElementsByClassName("tab");
+
+    // Exit the function if any field in the current tab is invalid:
+    if (n == 1 && !validateForm()) return false;
+    
+    // Hide the current tab:
+    x[currentTab].style.display = "none";
+    // Increase or decrease the current tab by 1:
+    currentTab = currentTab + n;
+    // if you have reached the end of the form... :
+    if (currentTab >= x.length) {
+      //...the form gets submitted:
+      // document.getElementById("customer").submit();
+      return false;
+    }
+    // Otherwise, display the correct tab:
+    showTab(currentTab);
+  }
+
+  function cbxValid2() {
+    Array.wrap
+
+  }
+
+  function cbxValid() {
+    var cbx = document.querySelectorAll('input[name="checkValid"]');
+    var cbxToValidate = document.querySelectorAll("input[class=checkValid]");
+    var cbxValid = [].filter.call(cbxToValidate, function (el ) {
+      return el.checked
+    })
+
+    console.log(cbxToValidate);
+    console.log(cbxValid);
+    if (cbxValid.length < cbxToValidate.length) {
+        alert('Please accept all the Terms and Conditions');
+        return false;
+    } else {
+      nextPrev(1);
+    }
+  }
+
+  function validateForm() {
+    // This function deals with validation of the form fields
+    var x, y, i, valid = true;
+    x = document.getElementsByClassName("tab");
+    y = x[currentTab].getElementsByTagName("input");
+    // A loop that checks every input field in the current tab:
+    for (i = 0; i < y.length; i++) {
+      // If a field is empty...
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false:
+        valid = false;
+      }
+    }
+    // If the valid status is true, mark the step as finished and valid:
+    if (valid) {
+      document.getElementsByClassName("step")[currentTab].className += " finish";
+    }
+    return valid; // return the valid status
+  }
+
+  function fixStepIndicator(n) {
+    // This function removes the "active" class of all steps...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" active", "");
+    }
+    //... and adds the "active" class to the current step:
+    x[n].className += " active";
+  }
+  function formComplete(enrollmentCode) {
+    console.log(enrollmentCode)
+  }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.js"
         integrity="sha256-EC4uJBUVJajz55e16crIlugfOU9dQLHFVqVjw9E0wpI="
         crossorigin="anonymous"></script>
+
 </body>
 </html>
