@@ -2,6 +2,6 @@
 Name=Open NEXT Decryptor
 Comment=Open browser for decryption
 Exec=firefox ~/encrypted-post/dist/decrypt/index.html
-Terminal=true
+Terminal=false
 Type=Application
 StartupNotify=false
