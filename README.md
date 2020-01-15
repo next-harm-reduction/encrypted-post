@@ -73,3 +73,16 @@ Features avoided:
 * [TextEncoder](https://caniuse.com/#feat=textencoder) is unavailable in IE 10-11, so we add a polyfill
 * [Arrow functions](https://caniuse.com/#feat=arrow-functions) are unsupported in IE 10-11
 * [Const/Let declarations](https://caniuse.com/#feat=const) are unsupported in IE10
+
+## Multiple Key support
+
+Both the PRIVATE_KEY_FILE and PUBLIC_KEY_FILE can support multiple keys.
+For the PRIVATE_KEY_FILE, just append the keys together (leaving the begin/end `------BEGIN RSA.....----` lines in).
+
+For the PUBLIC_KEY_FILE, the first key is the default.
+After that, subsequent keys should be prefixed with a line like
+```
+OPTION=State:CA
+```
+Which means if someone fills in field with name="State" and the value is "CA" then we should use this public key.
+

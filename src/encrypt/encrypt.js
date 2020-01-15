@@ -1,5 +1,5 @@
 import JSEncrypt from 'jsencrypt';
-import pubKey from 'PUBLIC_KEY_FILE';
+import pubKeyData from 'PUBLIC_KEY_FILE';
 
 require('./closestPolyfill');
 require('./textEncoderPolyfill');
@@ -7,6 +7,28 @@ require('./textEncoderPolyfill');
 function encryptFormResponse(res, passedData) {
   var crypto = window.crypto || window.msCrypto;
   var initVector = window.crypto.getRandomValues(new Uint32Array(8));
+  var pubKeyChoices = pubKeyData.split('OPTION=');
+  var pubKey = null;
+  if (pubKeyChoices.length > 1) {
+    // skip first which is the default
+    for (var p=1; p<pubKeyChoices.length; p++) {
+      var success = null;
+      var pKey = pubKeyChoices[p].replace(
+          /(\w+):(.+)\n/,
+        function(_, field, value) {
+          if (res[field] && res[field] == value) {
+            success = [field, value];
+          }
+          return '';
+        });
+      if (success) {
+        pubKey = pKey;
+      }
+    }
+  }
+  if (pubKey == null) {
+    pubKey = pubKeyChoices[0]; // first (default) choice
+  }
   var jsEncrypt = new JSEncrypt();
   jsEncrypt.setPublicKey(pubKey);
   // https://www.w3.org/2012/webcrypto/draft-irtf-cfrg-webcrypto-algorithms-00#sctn-intro
@@ -52,7 +74,9 @@ function encryptFormResponse(res, passedData) {
   return Promise.all([genEncryptedKey,
                       genCipher,
                       Promise.resolve(btoa(initVector.toString())),
-                      Promise.resolve(passedData)]);
+                      Promise.resolve(passedData),
+                      Promise.resolve(pubKey)
+                     ]);
 }
 
 function sendXhr(valuesDict, successCallback, errCallback, baseUrl) {
@@ -139,13 +163,14 @@ function fakeFill(stepThrough, randomCheckBoxes) {
   }
 }
 
-function sendFormResponse([encryptedKey, cipherText, initVector, passedData]) {
+function sendFormResponse([encryptedKey, cipherText, initVector, passedData, pubKeyUsed]) {
   var url = SUBMIT_URL
 
   return sendXhr({ key: encryptedKey,
                    fielddata: cipherText,
                    initVector: initVector,
                    gitHash: GITHASH,
+                   pubKeyUsed: pubKeyUsed
                  },
                  function(retval) {
                    if (passedData && passedData.success) {
