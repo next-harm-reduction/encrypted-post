@@ -16,7 +16,7 @@
 ### Building the encrypt tool
 
 7. Run `npm install` if you haven't done so to load the node/webpack modules.
-8. We'll assume you generated/copied the public key to the root of the project to a file `rsa_2048_pub.pem`. This is `PUBLIC_KEY_FILE` in the config.  We now have three variables to input to our build command.  Run the following command all on line line:
+8. We'll assume you generated/copied the public key to the root of the project to a file `rsa_2048_pub.pem`. This is `PUBLIC_KEY_FILE` in the config.  We now have three variables to input to our build command.  Run the following command all on one line:
 ```
 SPREADSHEET_ID=<YOUR SPREADSHEET_ID> SUBMIT_URL=<YOUR SUBMIT_URL> PUBLIC_KEY_FILE=<RELATIVE PATH TO PUBLIC_KEY> ./node_modules/.bin/webpack
 ```
