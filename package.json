@@ -34,7 +34,7 @@
   "dependencies": {
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jsencrypt": "^3.0.0-rc.1"
   }
 }
